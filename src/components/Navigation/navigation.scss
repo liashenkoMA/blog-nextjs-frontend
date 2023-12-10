@@ -1,0 +1,51 @@
+@import "../../app/variables.module.scss";
+
+.nav {
+  display: flex;
+}
+
+.nav__link {
+  margin-left: 32px;
+
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  color: $white;
+}
+
+.nav__link:hover {
+  opacity: 0.7;
+}
+
+.nav__link_active {
+  color: $brand-aqamarin;
+}
+
+.nav__social {
+  display: flex;
+  align-items: center;
+
+  list-style: none;
+}
+
+.nav__social-links:nth-child(even) {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.nav__social-link {
+  display: flex;
+}
+
+.nav__social-link:hover {
+  opacity: 0.7;
+}
+
+.nav__social-description {
+  padding-left: 8px;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $white;
+}

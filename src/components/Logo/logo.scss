@@ -1,0 +1,15 @@
+@import "../../app/variables.module.scss";
+
+.logo {
+  display: flex;
+}
+
+.logo__description {
+  padding-left: 8px;
+
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+
+  color: $white;
+}
