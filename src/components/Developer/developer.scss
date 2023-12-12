@@ -1,0 +1,195 @@
+@import "../../app/variables.module.scss";
+
+.developer {
+  max-width: 1664px;
+
+  margin: 0px auto;
+}
+
+.developer__conteiner {
+  padding-top: 64px;
+  padding-bottom: 128px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.developer__title {
+  font-size: 117px;
+  font-weight: 400;
+  line-height: 134px;
+  color: $brand;
+}
+
+.developer__content {
+  margin: 0px auto;
+  padding-top: 64px;
+
+  display: flex;
+}
+
+.developer__contacts {
+  min-width: 320px;
+  min-height: 520px;
+
+  border-radius: 160px 0px;
+  border: 4px solid $white;
+
+  box-shadow: -4px -4px 2px 0px $brand-aqamarin;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.developer__avatar {
+  margin-top: 37px;
+
+  object-fit: cover;
+
+  border: 3px solid $brand-aqamarin;
+  border-radius: 65px;
+}
+
+.developer__name {
+  padding-top: 16px;
+
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  color: $white;
+}
+
+.developer__profession {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: $white;
+}
+
+.developer__contacts-data {
+  min-width: 274px;
+
+  padding-top: 32px;
+  list-style: none;
+}
+
+.developer__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: $white;
+
+  display: flex;
+  align-items: center;
+}
+
+.developer__text:nth-child(n + 2) {
+  padding-top: 16px;
+}
+
+.developer__icon {
+  margin-right: 16px;
+}
+
+.developer__techs {
+  max-width: 274px;
+
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.developer__tech {
+  margin-top: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  background-color: $brand-aqamarin;
+  border: none;
+  border-radius: 8px;
+
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: $background-color-grey;
+}
+
+.developer__tech:nth-child(even) {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.developer__info {
+  padding-left: 128px;
+  min-width: 960px;
+}
+
+.developer__text-header {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: $brand;
+}
+
+.developer__user-text {
+  padding-left: 16px;
+
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 72px;
+  color: $white;
+}
+
+.developer__text_colored_brand-aqamarin {
+  color: $brand-aqamarin;
+}
+
+.developer__description {
+  padding-top: 32px;
+}
+
+.developer__description-text {
+  padding: 16px 24px;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $white;
+}
+
+.developer__contact {
+  padding-top: 16px;
+  padding-left: 24px;
+
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  color: $brand-aqamarin;
+
+  display: flex;
+  align-items: center;
+}
+
+.developer__contact-btn {
+  margin-left: 16px;
+
+  width: 40px;
+  height: 40px;
+
+  background-image: url(../../images/icon-mail.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  background-color: $grey;
+  border: none;
+  border-radius: 40px;
+}
+
+.developer__contact-btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
