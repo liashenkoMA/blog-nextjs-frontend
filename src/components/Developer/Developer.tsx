@@ -2,10 +2,10 @@ import "./developer.scss";
 import Image from "next/image";
 
 import avatar from "../../images/photo.jpg";
-import email from "../../images/icon-mail.svg";
-import sity from "../../images/icon-map-pin.svg";
-import rab from "../../images/icon-briefcase.svg";
-import link from "../../images/icon-link.svg";
+import email from "../../images/icon-mail.png";
+import sity from "../../images/icon-map-pin.png";
+import rab from "../../images/Shape.png";
+import link from "../../images/icon-link.png";
 
 export default function Developer() {
   return (
@@ -82,10 +82,7 @@ export default function Developer() {
               <p className="developer__user-text">
                 Привет!
                 <br />
-                Меня зовут
-                <span className="developer__text_colored_brand-aqamarin">
-                  Максим
-                </span>
+                Меня зовут<span className="developer__text_colored_brand-aqamarin"> Максим</span>
                 <br />Я начинающий Full-Stack Developer
                 <span className="developer__text-header">&lt;/h1&gt;</span>
               </p>

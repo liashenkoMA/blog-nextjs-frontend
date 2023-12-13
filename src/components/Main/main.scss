@@ -1,7 +1,11 @@
-@import "../../app/variables.module.scss"; 
+@import "../../app/variables.module.scss";
 
 .main {
   min-width: 100vw;
+
+  background-color: $background-color;
   
-  background-color: $background-color-grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

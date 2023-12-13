@@ -1,10 +1,5 @@
 @import "../../app/variables.module.scss";
-
-.developer {
-  max-width: 1664px;
-
-  margin: 0px auto;
-}
+@import "../../app/mixin";
 
 .developer__conteiner {
   padding-top: 64px;
@@ -19,7 +14,7 @@
   font-size: 117px;
   font-weight: 400;
   line-height: 134px;
-  color: $brand;
+  @include text-gradient;
 }
 
 .developer__content {
@@ -36,7 +31,7 @@
   border-radius: 160px 0px;
   border: 4px solid $white;
 
-  box-shadow: -4px -4px 2px 0px $brand-aqamarin;
+  box-shadow: -4px -4px 2px 0px $light-blue;
 
   display: flex;
   flex-direction: column;
@@ -48,7 +43,7 @@
 
   object-fit: cover;
 
-  border: 3px solid $brand-aqamarin;
+  border: 3px solid $light-blue;
   border-radius: 65px;
 }
 
@@ -102,12 +97,13 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
 .developer__tech {
   margin-top: 16px;
   padding-left: 8px;
   padding-right: 8px;
 
-  background-color: $brand-aqamarin;
+  background-color: $light-blue;
   border: none;
   border-radius: 8px;
 
@@ -115,7 +111,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
-  color: $background-color-grey;
+  color: $background-color;
 }
 
 .developer__tech:nth-child(even) {
@@ -132,7 +128,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
-  color: $brand;
+  color: $light-blue;
 }
 
 .developer__user-text {
@@ -145,7 +141,7 @@
 }
 
 .developer__text_colored_brand-aqamarin {
-  color: $brand-aqamarin;
+  @include text-gradient;
 }
 
 .developer__description {
@@ -168,7 +164,7 @@
   font-size: 32px;
   font-weight: 500;
   line-height: 42px;
-  color: $brand-aqamarin;
+  @include text-gradient;
 
   display: flex;
   align-items: center;
@@ -180,16 +176,16 @@
   width: 40px;
   height: 40px;
 
-  background-image: url(../../images/icon-mail.svg);
+  background-image: url(../../images/icon-mail.png);
   background-repeat: no-repeat;
   background-position: center;
 
   background-color: $grey;
   border: none;
   border-radius: 40px;
-}
 
-.developer__contact-btn:hover {
-  opacity: 0.7;
-  cursor: pointer;
+  @include hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
 }

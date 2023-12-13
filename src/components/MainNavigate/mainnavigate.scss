@@ -1,4 +1,5 @@
 @import "../../app/variables.module.scss";
+@import "../../app/mixin";
 
 .nav__link {
   margin-left: 32px;
@@ -7,12 +8,11 @@
   font-weight: 400;
   line-height: 32px;
   color: $white;
-}
-
-.nav__link:hover {
-  opacity: 0.7;
+  @include hover {
+    color: $light-blue;
+  }
 }
 
 .nav__link_active {
-  color: $brand-aqamarin;
+  color: $light-blue;
 }

@@ -1,0 +1,14 @@
+@import "./variables.module.scss";
+
+@mixin text-gradient {
+  background: $text-gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin hover {
+  &:hover {
+    @content;
+  }
+}
