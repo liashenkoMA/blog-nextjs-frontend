@@ -1,0 +1,31 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.social {
+  display: flex;
+  align-items: center;
+
+  list-style: none;
+}
+
+.social__links:nth-child(even) {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.social__link {
+  display: flex;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $white;
+
+  @include hover {
+    color: $light-blue;
+  }
+}
+
+.social__description {
+  padding-left: 8px;
+}

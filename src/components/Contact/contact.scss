@@ -1,0 +1,137 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.contact {
+  min-height: 556px;
+  min-width: 1664px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 128px;
+  background-color: $background-element-color;
+
+  border: 1px solid $border-color;
+  border-radius: 30px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact__container {
+  margin: 30px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__title {
+  width: 367px;
+  height: 104px;
+  margin-bottom: 64px;
+
+  border: 4px solid $light-blue;
+  border-radius: 40px 0px;
+  background-color: $background-color;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 72px;
+  color: $white;
+}
+
+.contact__form {
+  max-width: 1120px;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+
+  border-radius: 40px;
+  border: 1px solid $border-color;
+
+  background-color: $background-color;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact__inputs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact__form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__form-field:nth-child(3) {
+  padding-top: 64px;
+}
+
+.contact__text {
+  padding-bottom: 14px;
+
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 18px;
+  @include text-gradient;
+}
+
+.contact__input {
+  width: 496px;
+  height: 22px;
+
+  background-color: transparent;
+
+  border: none;
+  border-bottom: 2px solid $blue;
+
+  color: $white;
+}
+
+.contact__input:focus {
+  padding: 5px;
+
+  outline: none;
+  border: 1px solid $blue;
+  border-radius: 8px;
+}
+
+.contact__input_type_message {
+  min-width: 1058px;
+}
+
+.contact__button {
+  margin-top: 64px;
+
+  width: 234px;
+  height: 56px;
+
+  background-color: $light-blue;
+
+  border: none;
+  border-radius: 32px;
+
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+.contact__icon {
+  padding-left: 4px;
+}

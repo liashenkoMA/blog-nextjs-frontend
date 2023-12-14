@@ -1,9 +1,5 @@
-import styles from './page.module.scss'
+import Main from "@/components/Main/Main";
 
 export default function Home() {
-  return (
-    <main >
-      <p>Hello blog!</p>
-    </main>
-  )
+  return <Main />;
 }

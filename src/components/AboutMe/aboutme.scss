@@ -1,0 +1,88 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.aboutme__conteiner {
+  min-height: 556px;
+  min-width: 1664px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $background-element-color;
+
+  border: 1px solid $border-color;
+  border-radius: 30px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.aboutme__profile {
+  margin: 30px;
+}
+
+.aboutme__title {
+  width: 367px;
+  height: 104px;
+  margin-bottom: 64px;
+
+  border: 4px solid $light-blue;
+  border-radius: 40px 0px;
+  background-color: $background-color;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 72px;
+  color: $white;
+}
+
+.aboutme__description {
+  padding: 24px 40px;
+  max-width: 980px;
+
+  border-radius: 40px;
+  border: 1px solid $border-color;
+
+  background-color: $background-color;
+}
+
+.aboutme__text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $white;
+}
+
+.aboutme__text_type_position {
+  padding-left: 24px;
+}
+
+.aboutme__text:nth-child(n + 3) {
+  padding-top: 16px;
+}
+
+.aboutme__text_type_code {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: $light-blue;
+}
+
+.aboutme__text_type__title {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+}
+
+.aboutme__text_type__color {
+  @include text-gradient;
+}
+
+.aboutme__user-photo {
+  margin: 30px;
+
+  border-radius: 16px;
+  border: 1px solid $border-color;
+}
