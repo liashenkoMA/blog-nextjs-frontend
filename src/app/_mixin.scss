@@ -12,3 +12,33 @@
     @content;
   }
 }
+
+@mixin nth-child($num) {
+  &:nth-child(n + #{$num}) {
+    @content;
+  }
+}
+
+@mixin media-1679 {
+  @media (max-width: 1680px) {
+    @content;
+  }
+}
+
+@mixin media-1439 {
+  @media (max-width: 1439px) {
+    @content;
+  }
+}
+
+@mixin media-1023 {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin media-767 {
+  @media (max-width: 767px) {
+    @content;
+  }
+}

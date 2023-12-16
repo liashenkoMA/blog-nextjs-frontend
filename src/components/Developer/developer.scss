@@ -8,6 +8,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include media-1439 {
+    padding-bottom: 64px;
+  }
 }
 
 .developer__title {
@@ -15,6 +19,16 @@
   font-weight: 400;
   line-height: 134px;
   @include text-gradient;
+
+  @include media-1023 {
+    font-size: 86px;
+  }
+
+  @include media-767 {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 50px;
+  }
 }
 
 .developer__content {
@@ -22,11 +36,16 @@
   padding-top: 64px;
 
   display: flex;
+
+  @include media-1439 {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .developer__contacts {
-  min-width: 320px;
-  min-height: 520px;
+  width: 320px;
+  height: 520px;
 
   border-radius: 160px 0px;
   border: 4px solid $white;
@@ -36,6 +55,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include media-767 {
+    width: 272px;
+    height: 472px;
+  }
 }
 
 .developer__avatar {
@@ -68,6 +92,10 @@
 
   padding-top: 32px;
   list-style: none;
+
+  @include media-767 {
+    min-width: 220px;
+  }
 }
 
 .developer__text {
@@ -96,6 +124,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+
+  @include media-767 {
+    max-width: 200px;
+
+    justify-content: flex-start;
+  }
 }
 
 .developer__tech {
@@ -112,16 +146,51 @@
   font-weight: 400;
   line-height: 18px;
   color: $background-color;
+
+  @include media-767 {
+    margin-top: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
 }
 
 .developer__tech:nth-child(even) {
   margin-left: 16px;
   margin-right: 16px;
+
+  @include media-767 {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
 }
 
 .developer__info {
   padding-left: 128px;
   min-width: 960px;
+
+  @include media-1679 {
+    max-width: 900px;
+  }
+
+  @include media-1439 {
+    padding-top: 64px;
+  }
+
+  @include media-1023 {
+    min-width: 680px;
+  }
+
+  @include media-767 {
+    min-width: 285px;
+    padding-left: 0px;
+    margin: 0px auto;
+  }
+}
+
+.developer__user {
+  @include media-767 {
+    max-width: 280px;
+  }
 }
 
 .developer__text-header {
@@ -138,6 +207,19 @@
   font-weight: 400;
   line-height: 72px;
   color: $white;
+
+  @include media-1023 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  @include media-767 {
+    padding-left: 8px;
+
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 32px;
+  }
 }
 
 .developer__text_colored_brand-aqamarin {
@@ -150,11 +232,20 @@
 
 .developer__description-text {
   padding: 16px 24px;
+  max-width: 1070px;
 
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   color: $white;
+
+  @include media-1023 {
+    max-width: 680px;
+  }
+
+  @include media-767 {
+    max-width: 280px;
+  }
 }
 
 .developer__contact {

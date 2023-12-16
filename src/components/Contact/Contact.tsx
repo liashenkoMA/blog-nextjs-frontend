@@ -6,7 +6,7 @@ export default function Contatc() {
   return (
     <section className="contact">
       <div className="contact__container">
-        <h2 className="contact__title">Contact</h2>
+        <h2 className="contact__title" id="contact__title">Contact</h2>
         <form className="contact__form">
           <div className="contact__inputs">
             <label className="contact__form-field">

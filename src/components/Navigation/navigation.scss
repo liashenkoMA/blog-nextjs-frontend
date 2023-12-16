@@ -1,3 +1,72 @@
-.nav {
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.nav__links {
   display: flex;
+
+  @include media-1439 {
+    display: none;
+  }
+}
+
+.nav__links_type_open {
+  padding-top: 124px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav_type_open {
+  width: 500px;
+  height: 100%;
+  background-color: $background-color;
+
+  border: 1px solid $border-color;
+  box-shadow: $shadow;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+
+  @include media-767 {
+    width: 100%;
+  }
+}
+
+.nav__button {
+  display: none;
+
+  @include media-1439 {
+    display: flex;
+
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.nav__button_type_open {
+  width: 38px;
+  height: 38px;
+
+  background-image: url(../../images/burger.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+}
+
+.nav__button_type_close {
+  width: 22px;
+  height: 22px;
+
+  background-image: url(../../images/Closeicon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+
+  position: absolute;
+  top: 30px;
+  right: 30px;
 }

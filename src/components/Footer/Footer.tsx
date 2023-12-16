@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer__content">
         <p className="footer__copyright">© 2023 Created by <span className="footer__copyright_type_color">LyashenkoMA</span></p>
-        <Social />
+        <Social position={'social_position_footer'} />
       </div>
     </footer>
   );
