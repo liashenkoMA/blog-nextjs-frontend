@@ -3,6 +3,10 @@
 
 .skills {
   padding-top: 128px;
+
+  @include media-1439 {
+    padding-top: 64px;
+  }
 }
 
 .skills__container {
@@ -16,6 +20,22 @@
 
   display: flex;
   flex-direction: column;
+
+  @include media-1679 {
+    max-width: 1280px;
+  }
+
+  @include media-1439 {
+    max-width: 768px;
+  }
+
+  @include media-1023 {
+    max-width: 680px;
+  }
+
+  @include media-767 {
+    max-width: 290px;
+  }
 }
 
 .skills__title {
@@ -35,6 +55,20 @@
   font-weight: 400;
   line-height: 72px;
   color: $white;
+
+  @include media-1439 {
+    margin: 30px 30px 64px auto;
+  }
+
+    @include media-767 {
+    width: 224px;
+    height: 68px;
+
+    margin-bottom: 32px;
+
+    font-size: 32px;
+    line-height: 36px;
+  }
 }
 
 .skills__techs-list {
@@ -45,6 +79,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @include media-767 {
+    margin: 0px 10px 10px 10px;
+  }
 }
 
 .skills__tech {
@@ -59,10 +97,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-.skills__tech:nth-child(n + 5) {
-  margin-top: 53px;
+  @include nth-child(5) {
+    margin-top: 53px;
+  }
+
+  @include media-1679 {
+    @include nth-child(4) {
+      margin-top: 53px;
+    }
+
+    @include nth-child(3) {
+      margin-top: 25px;
+    }
+  }
+
+  @include media-1439 {
+    width: 300px;
+  }
+
+  
+  @include media-767 {
+    width: 268px;
+    
+    @include nth-child(2) {
+      margin-top: 20px;
+    }
+  }
 }
 
 .skills__header {
@@ -70,6 +131,11 @@
   font-weight: 500;
   line-height: 42px;
   color: $light-blue;
+
+  @include media-1023 {
+    font-weight: 400;
+    line-height: 36px;
+  }
 }
 
 .skills__description {
@@ -79,4 +145,10 @@
   font-weight: 400;
   line-height: 32px;
   color: $white;
+
+  @include media-1023 {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 18px;
+  }
 }

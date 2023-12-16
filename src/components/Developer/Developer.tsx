@@ -1,11 +1,13 @@
 import "./developer.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 import avatar from "../../images/photo.jpg";
 import email from "../../images/icon-mail.png";
 import sity from "../../images/icon-map-pin.png";
 import rab from "../../images/Shape.png";
 import link from "../../images/icon-link.png";
+
 
 export default function Developer() {
   return (
@@ -82,7 +84,11 @@ export default function Developer() {
               <p className="developer__user-text">
                 Привет!
                 <br />
-                Меня зовут<span className="developer__text_colored_brand-aqamarin"> Максим</span>
+                Меня зовут
+                <span className="developer__text_colored_brand-aqamarin">
+                  {" "}
+                  Максим
+                </span>
                 <br />Я начинающий Full-Stack Developer
                 <span className="developer__text-header">&lt;/h1&gt;</span>
               </p>
@@ -90,14 +96,16 @@ export default function Developer() {
             <div className="developer__description">
               <span className="developer__text-header">&lt;p&gt;</span>
               <p className="developer__description-text">
-                I help business grow by crafting amazing web experiences. If
-                you`re looking for a developer that likes to get stuff done,
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui
+                nisi cumque magni praesentium eveniet expedita cum deserunt
+                nobis molestiae, quas accusamus adipisci cupiditate, id debitis
+                amet quis eaque ipsum repellendus?
               </p>
               <span className="developer__text-header">&lt;/p&gt;</span>
             </div>
             <p className="developer__contact">
               Let`s Talk
-              <button type="button" className="developer__contact-btn"></button>
+              <Link href="#contact__title"  className="developer__contact-btn"></Link>
             </p>
           </div>
         </div>

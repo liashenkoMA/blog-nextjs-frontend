@@ -6,6 +6,10 @@
   align-items: center;
 
   list-style: none;
+
+  @include media-1439 {
+    margin-top: 64px;
+  }
 }
 
 .social__links:nth-child(even) {
@@ -24,8 +28,22 @@
   @include hover {
     color: $light-blue;
   }
+
+  @include media-767 {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 18px;
+  }
 }
 
 .social__description {
   padding-left: 8px;
+}
+
+.social_position_footer {
+  margin-top: 0;
+
+  @include media-767 {
+    margin-top: 30px;
+  }
 }

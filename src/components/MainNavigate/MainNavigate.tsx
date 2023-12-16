@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import "./mainnavigate.scss";
 import { usePathname } from "next/navigation";
@@ -22,6 +20,14 @@ export default function MainNavigate() {
         }`}
       >
         Blogs
+      </Link>
+      <Link
+        href="/aboutme"
+        className={`nav__link ${
+          pathname === "/aboutme" ? "nav__link_active" : ""
+        }`}
+      >
+        About Me
       </Link>
     </>
   );

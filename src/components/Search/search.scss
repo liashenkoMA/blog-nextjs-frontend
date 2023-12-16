@@ -1,10 +1,15 @@
 @import "../../app/variables.module.scss";
+@import "../../app/mixin";
 
 .searchform {
   margin: 0px 64px;
 
   display: flex;
   align-items: center;
+
+  @include media-1439 {
+    margin-top: 64px;
+  }
 }
 
 .search {

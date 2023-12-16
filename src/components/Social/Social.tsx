@@ -6,9 +6,9 @@ import telegram from "../../images/Telegram.svg";
 import vk from "../../images/VK.svg";
 import git from "../../images/GH.png";
 
-export default function Social() {
+export default function Social({ position }: { position: string }) {
   return (
-    <ul className="social">
+    <ul className={`social ${position}`}>
       <li className="social__links">
         <Link
           href="https://t.me/Liashenko_Mak"
