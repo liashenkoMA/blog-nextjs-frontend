@@ -1,11 +1,11 @@
 import "./main.scss";
 
-import Contatc from "@/components/Contact/Contact";
+import HomepageHead from "@/components/HomepageHead/HomepageHead";
 
 export default function Main() {
   return (
     <main className="main">
-      <Contatc />
+      <HomepageHead />
     </main>
   );
 }

@@ -1,0 +1,93 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.homepagehead {
+  width: 100%;
+
+  padding-top: 128px;
+  padding-bottom: 128px;
+  background-color: $background-color-light;
+}
+
+.homepagehead__container {
+  max-width: 1680px;
+  margin: 0px auto;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.homepagehead__profile {
+  max-width: 540px;
+}
+
+.homepagehead__text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $white;
+}
+
+.homepagehead__text_type_strong {
+  font-weight: 700;
+}
+
+.homepagehead__header_type_color {
+  @include text-gradient;
+}
+
+.homepagehead__header {
+  padding: 20px 0px;
+
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 87px;
+  color: $white;
+}
+
+.homepagehead__images {
+  max-width: 840px;
+
+  position: relative;
+}
+
+.homepagehead__image {
+  border-radius: 16px;
+  border: 1px solid $border-color;
+}
+
+.homepagehead__image_position_on {
+  position: relative;
+  z-index: 999;
+
+  animation: movingY 10s ease infinite alternate;
+}
+
+.homepagehead__image_position_under {
+  position: absolute;
+  z-index: 0;
+  top: 150px;
+  right: 190px;
+
+  animation: movingX 10s ease infinite alternate;
+}
+
+@keyframes movingY {
+  from {
+    translate: 0 -64px;
+  }
+
+  to {
+    translate: 0 20px;
+  }
+}
+
+@keyframes movingX {
+  from {
+    translate: -60px 0;
+  }
+
+  to {
+    translate: 40px 0;
+  }
+}

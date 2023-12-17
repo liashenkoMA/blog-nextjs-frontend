@@ -21,8 +21,6 @@
   align-items: center;
   justify-content: space-between;
 
-  border-bottom: 1px solid $border-color;
-
   @include media-1679 {
     max-width: 1280px;
   }
