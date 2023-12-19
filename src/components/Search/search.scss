@@ -14,36 +14,36 @@
 
 .search {
   position: relative;
-}
 
-.search__input {
-  min-width: 204px;
-  min-height: 32px;
+  &__input {
+    min-width: 204px;
+    min-height: 32px;
 
-  box-sizing: border-box;
-  padding-left: 10px;
+    box-sizing: border-box;
+    padding-left: 10px;
 
-  border: none;
-  border-radius: 24px;
-}
+    border: none;
+    border-radius: 24px;
+  }
 
-.search__btn {
-  position: absolute;
-  right: 16px;
-  top: 6px;
+  &__btn {
+    position: absolute;
+    right: 16px;
+    top: 6px;
 
-  background-image: url(../../images/icon-search.svg);
-  background-repeat: no-repeat;
-  background-position: left;
+    background-image: url(../../images/icon-search.svg);
+    background-repeat: no-repeat;
+    background-position: left;
 
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 
-  border: none;
-  background-color: transparent;
-}
+    border: none;
+    background-color: transparent;
+  }
 
-.search__btn:hover {
-  opacity: 0.7;
-  cursor: pointer;
+  &__btn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
 }

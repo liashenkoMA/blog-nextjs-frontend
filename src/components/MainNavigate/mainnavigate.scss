@@ -1,29 +1,29 @@
 @import "../../app/variables.module.scss";
 @import "../../app/mixin";
 
-.nav__link {
-  margin-left: 32px;
+.nav {
+  &__link {
+    margin-left: 32px;
 
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  color: $white;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    color: $white;
 
-  @include hover {
+    @include hover {
+      color: $light-blue;
+    }
+
+    @include media-1439 {
+      margin-left: 0;
+      margin-top: 36px;
+
+      font-size: 32px;
+      line-height: 20px;
+    }
+  }
+
+  &__link_active {
     color: $light-blue;
   }
-
-  @include media-1439 {
-    margin-left: 0;
-    margin-top: 36px;
-
-    font-size: 32px;
-    line-height: 20px;
-  }
-
-
-}
-
-.nav__link_active {
-  color: $light-blue;
 }

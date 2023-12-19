@@ -14,7 +14,7 @@ export default function HomepageHead() {
           <h1 className="homepagehead__header">
             I`m
             <br />
-            <span className="homepagehead__header homepagehead__header_type_color">Creator</span>
+            <span className="homepagehead__header homepagehead__header_type_color"></span>
           </h1>
           <p className="homepagehead__text">
             I use animation as a third dimension by which to simplify
