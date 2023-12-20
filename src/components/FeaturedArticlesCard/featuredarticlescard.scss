@@ -1,0 +1,132 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.featuredarticlescard {
+  max-width: 345px;
+  max-height: 427px;
+
+  @include media-767 {
+    width: 290px;
+  }
+
+  &__conteiner {
+    padding: 20px;
+
+    background-color: $background-element-color;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+  }
+
+  &__images {
+    object-fit: cover;
+    border-radius: 10px;
+
+    @include media-767 {
+      width: 250px;
+    }
+  }
+
+  &__informations {
+    padding: 20px 0px 20px 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $grey;
+    display: flex;
+  }
+
+  &__timeread-icon {
+    padding-right: 3px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 27px;
+    color: $white;
+  }
+
+  &__nav {
+    padding-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+  }
+
+  &__author-photo {
+    border: none;
+    border-radius: 24px;
+  }
+
+  &__author-info {
+    padding-left: 10px;
+  }
+
+  &__author-name {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16px;
+    color: $white;
+    opacity: 0.7;
+  }
+
+  &__date-publick {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16px;
+    color: $white;
+    opacity: 0.7;
+  }
+
+  &__round-pic {
+    width: 48px;
+    height: 48px;
+
+    margin-right: 55px;
+
+    border: none;
+    border-radius: 24px;
+    z-index: 0;
+
+    background-color: $background-color;
+  }
+
+  &__nav-link {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $light-blue;
+
+    position: relative;
+
+    @include hover {
+      color: $blue;
+    }
+  }
+
+  &__nav-link_type_text {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.link {
+  &_color {
+    @include hover {
+      color: $blue;
+    }
+  }
+}

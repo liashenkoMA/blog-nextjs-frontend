@@ -82,6 +82,12 @@
     font-size: 64px;
     line-height: 87px;
     color: $white;
+
+    @include media-767 {
+      font-weight: 700;
+      font-size: 45px;
+      line-height: 61px;
+    }
   }
 
   &__images {
