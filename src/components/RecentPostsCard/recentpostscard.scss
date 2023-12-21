@@ -6,14 +6,15 @@
 
   display: flex;
 
+  @include media-1679 {
+    max-width: 620px;
+  }
+
   @include media-767 {
     max-width: 290px;
     min-height: 260px;
 
     flex-direction: column;
-  }
-
-  &__image-link {
   }
 
   &__image {
@@ -33,7 +34,7 @@
     justify-content: space-between;
 
     @include media-767 {
-    padding-left: 0px;
+      padding-left: 0px;
     }
   }
 
@@ -70,12 +71,6 @@
     line-height: 20px;
     color: $grey;
     display: flex;
-  }
-
-  &__time_type_publick {
-  }
-
-  &__time_type_read {
   }
 
   &__timeread-icon {
