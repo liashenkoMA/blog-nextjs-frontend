@@ -1,0 +1,45 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.tag {
+  width: 164px;
+  height: 72px;
+
+  border: 1px solid $border-color;
+  border-radius: 16px;
+
+  display: flex;
+
+  background-color: $background-element-color;
+
+  &__link {
+    margin: 19px;
+
+    display: flex;
+    align-items: center;
+
+    color: $white;
+
+    @include hover {
+      color: $blue;
+    }
+  }
+
+  &__img {
+    border: none;
+    border-radius: 16px;
+  }
+
+  &__description {
+    padding-left: 10px;
+
+    line-height: 18px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  @include hover {
+    border: 1px solid $blue;
+    box-shadow: $shadow;
+  }
+}

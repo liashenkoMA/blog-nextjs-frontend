@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Ubuntu } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
-const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "400", "500"] });
+const ubuntu = Roboto({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
 export const metadata: Metadata = {
   title: "Blog",

@@ -1,0 +1,162 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.homepagehead {
+  width: 100%;
+
+  padding-top: 128px;
+  padding-bottom: 128px;
+  background-color: $background-color-light;
+
+  @include media-767 {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  &__container {
+    max-width: 1440px;
+    margin: 0px auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    @include media-1679 {
+      max-width: 1280px;
+      align-items: center;
+    }
+
+    @include media-1439 {
+      flex-direction: column;
+      max-width: 768px;
+    }
+
+    @include media-1023 {
+      max-width: 680px;
+    }
+
+    @include media-767 {
+      max-width: 290px;
+    }
+  }
+
+  &__profile {
+    max-width: 560px;
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $white;
+  }
+
+  &__text_type_strong {
+    font-weight: 700;
+  }
+
+  &__header_type_color {
+    @include text-gradient;
+  }
+
+  @include text-writer-home;
+
+  &__header_type_color {
+    --caret: currentcolor;
+  }
+
+  &__header_type_color::before {
+    content: "";
+    animation: typing 15s infinite;
+  }
+
+  &__header_type_color::after {
+    content: "";
+    border-right: 1px solid var(--caret);
+    animation: blink 0.5s linear infinite;
+  }
+
+  &__header {
+    padding: 20px 0px;
+
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 87px;
+    color: $white;
+
+    @include media-767 {
+      font-weight: 700;
+      font-size: 45px;
+      line-height: 61px;
+    }
+  }
+
+  &__images {
+    max-width: 840px;
+
+    position: relative;
+
+    @include media-1679 {
+      max-width: 540px;
+    }
+  }
+
+  &__image {
+    border-radius: 16px;
+    border: 1px solid $border-color;
+  }
+
+  &__image_position_on {
+    position: relative;
+    z-index: 2;
+
+    animation: movingY 10s ease infinite alternate;
+
+    @include media-1679 {
+      animation: none;
+      z-index: 0;
+
+      width: 462px;
+      height: 556px;
+
+      margin-top: 60px;
+    }
+
+    @include media-767 {
+      width: 290px;
+      height: 320px;
+    }
+  }
+
+  &__image_position_under {
+    position: absolute;
+    z-index: 0;
+    top: 150px;
+    right: 190px;
+
+    animation: movingX 10s ease infinite alternate;
+
+    @include media-1679 {
+      display: none;
+    }
+  }
+
+  @keyframes movingY {
+    from {
+      translate: 0 -64px;
+    }
+
+    to {
+      translate: 0 20px;
+    }
+  }
+
+  @keyframes movingX {
+    from {
+      translate: -60px 0;
+    }
+
+    to {
+      translate: 40px 0;
+    }
+  }
+}
