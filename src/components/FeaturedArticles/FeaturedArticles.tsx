@@ -25,7 +25,13 @@ export default function FeaturedArticles() {
         </div>
         <Link href="#" className="featuredarticles__link">
           Show More Posts
-          <Image src={arrow} width={14} height={14} alt="Arrow" className="featuredarticles__icon" />
+          <Image
+            src={arrow}
+            width={14}
+            height={14}
+            alt="Arrow"
+            className="featuredarticles__icon"
+          />
         </Link>
       </div>
     </section>
