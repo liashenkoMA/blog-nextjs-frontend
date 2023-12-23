@@ -3,14 +3,10 @@
 
 .featuredarticles {
   &__conteiner {
-    max-width: 1440px;
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 64px;
-
-    @include media-1679 {
-      max-width: 1280px;
-    }
 
     @include media-1439 {
       max-width: 768px;
@@ -43,15 +39,12 @@
 
   &__cards {
     padding: 60px 0px 60px 0px;
-    max-width: 1440px;
+    max-width: 1280px;
 
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px;
-
-    @include media-1679 {
-      justify-content: space-between;
-    }
+    gap: 40px;
 
     @include media-1023 {
       justify-content: center;

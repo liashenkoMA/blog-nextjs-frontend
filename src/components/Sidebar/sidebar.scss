@@ -1,0 +1,12 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.blog__sidebar {
+  max-width: 350px;
+
+  @include media-767 {
+    margin: 0px auto;
+    padding-top: 60px;
+    max-width: 290px;
+  }
+}

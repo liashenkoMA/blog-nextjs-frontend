@@ -9,7 +9,7 @@
   }
 
   &__container {
-    max-width: 1440px;
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
     background-color: $background-element-color;
@@ -19,10 +19,6 @@
 
     display: flex;
     flex-direction: column;
-
-    @include media-1679 {
-      max-width: 1280px;
-    }
 
     @include media-1439 {
       max-width: 768px;
@@ -85,8 +81,8 @@
   }
 
   &__tech {
-    width: 300px;
-    padding: 10px;
+    width: 290px;
+    padding: 12px;
 
     background-color: $background-color;
 
@@ -134,13 +130,12 @@
     padding-top: 15px;
 
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 24px;
     color: $white;
 
     @include media-1023 {
       font-size: 16px;
-      font-weight: 300;
       line-height: 18px;
     }
   }

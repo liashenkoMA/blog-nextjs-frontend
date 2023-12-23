@@ -12,8 +12,8 @@ export default function FeaturedArticlesCard() {
         <Link href="#" className="featuredarticlescard__images-link">
           <Image
             src={im}
-            width={305}
-            height={200}
+            width={360}
+            height={260}
             alt="#"
             loading="lazy"
             className="featuredarticlescard__images"

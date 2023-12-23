@@ -20,8 +20,6 @@ export default function FeaturedArticles() {
           <FeaturedArticlesCard />
           <FeaturedArticlesCard />
           <FeaturedArticlesCard />
-          <FeaturedArticlesCard />
-          <FeaturedArticlesCard />
         </div>
         <Link href="#" className="featuredarticles__link">
           Show More Posts

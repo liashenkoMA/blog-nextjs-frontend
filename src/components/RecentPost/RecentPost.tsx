@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import arrow from "../../images/arrow-right.png";
-import RecentPostsCard from "../RecentPostsCard/RecentPostsCard";
+import PostsCard from "../PostsCard/PostsCard";
 
 export default function RecentPosts() {
   return (
@@ -12,12 +12,12 @@ export default function RecentPosts() {
         <h2 className="recentposts__title">Recent posts</h2>
         <p className="recentposts__description">Don't miss the latest trends</p>
         <div className="recentposts__cards">
-          <RecentPostsCard />
-          <RecentPostsCard />
-          <RecentPostsCard />
-          <RecentPostsCard />
-          <RecentPostsCard />
-          <RecentPostsCard />
+          <PostsCard />
+          <PostsCard />
+          <PostsCard />
+          <PostsCard />
+          <PostsCard />
+          <PostsCard />
         </div>
         <Link href="#" className="recentposts__link">
           Show More Posts
