@@ -20,8 +20,6 @@ export default function PopularTags() {
           <Tag />
           <Tag />
           <Tag />
-          <Tag />
-          <Tag />
         </div>
       </div>
     </section>

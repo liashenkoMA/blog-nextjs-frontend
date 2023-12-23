@@ -2,8 +2,7 @@
 @import "../../app/mixin";
 
 .contact {
-  min-height: 556px;
-  min-width: 1440px;
+  min-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 128px;
@@ -14,10 +13,6 @@
 
   display: flex;
   justify-content: space-between;
-
-  @include media-1679 {
-    min-width: 1280px;
-  }
 
   @include media-1439 {
     min-width: 768px;
@@ -151,6 +146,7 @@
   &__input {
     min-width: 496px;
     height: 22px;
+    padding-bottom: 4px;
 
     background-color: transparent;
 

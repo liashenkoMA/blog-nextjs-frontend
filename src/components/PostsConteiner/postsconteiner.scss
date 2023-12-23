@@ -1,0 +1,8 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.blog__postsconteiner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

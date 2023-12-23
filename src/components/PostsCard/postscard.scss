@@ -1,14 +1,10 @@
 @import "../../app/variables.module.scss";
 @import "../../app/mixin";
 
-.recentpostscard {
-  max-width: 660px;
+.postscard {
+  max-width: 560px;
 
   display: flex;
-
-  @include media-1679 {
-    max-width: 620px;
-  }
 
   @include media-767 {
     max-width: 290px;
@@ -52,8 +48,8 @@
   &__description {
     padding-top: 10px;
 
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 300;
     line-height: 22px;
     color: $white;
   }
@@ -75,5 +71,13 @@
 
   &__timeread-icon {
     padding-right: 4px;
+  }
+}
+
+.link {
+  &_color {
+    @include hover {
+      color: $blue;
+    }
   }
 }
