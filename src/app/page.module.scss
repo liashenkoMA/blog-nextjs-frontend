@@ -1,0 +1,11 @@
+@import "./variables.module.scss";
+
+.main {
+  min-width: 100%;
+
+  background-color: $background-color;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

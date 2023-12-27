@@ -14,6 +14,7 @@ export default function RecentPostsCard() {
           src={im}
           width={200}
           height={180}
+          loading="lazy"
           alt="Card photo"
           className="recentpostscard__image"
         />

@@ -15,6 +15,7 @@ export default function PostCard() {
           src={im}
           width={270}
           height={270}
+          loading="lazy"
           alt="Card photo"
           className="postcard__image"
         />

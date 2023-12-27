@@ -42,6 +42,7 @@ export default function AboutMe() {
             src={photo}
             width={462}
             height={556}
+            loading="lazy"
             alt="1"
             className="aboutme__user-photo"
           />

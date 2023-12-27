@@ -222,6 +222,23 @@
 
   &__text_colored_brand-aqamarin {
     @include text-gradient;
+
+    @include text-writer-developer;
+  }
+
+  &__header_type_color {
+    --caret: currentcolor;
+  }
+
+  &__text_colored_brand-aqamarin::before {
+    content: "";
+    animation: developername 15s infinite;
+  }
+
+  &__text_colored_brand-aqamarin::after {
+    content: "";
+    border-right: 1px solid var(--caret);
+    animation: blink 0.5s linear infinite;
   }
 
   &__description {

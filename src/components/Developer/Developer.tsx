@@ -8,7 +8,6 @@ import sity from "../../images/icon-map-pin.png";
 import rab from "../../images/Shape.png";
 import link from "../../images/icon-link.png";
 
-
 export default function Developer() {
   return (
     <section className="developer">
@@ -84,11 +83,8 @@ export default function Developer() {
               <p className="developer__user-text">
                 Привет!
                 <br />
-                Меня зовут
-                <span className="developer__text_colored_brand-aqamarin">
-                  {" "}
-                  Максим
-                </span>
+                Меня зовут{" "}
+                <span className="developer__text_colored_brand-aqamarin"></span>
                 <br />Я начинающий Full-Stack Developer
                 <span className="developer__text-header">&lt;/h1&gt;</span>
               </p>
@@ -105,7 +101,10 @@ export default function Developer() {
             </div>
             <p className="developer__contact">
               Let`s Talk
-              <Link href="#contact__title"  className="developer__contact-btn"></Link>
+              <Link
+                href="#contact__title"
+                className="developer__contact-btn"
+              ></Link>
             </p>
           </div>
         </div>

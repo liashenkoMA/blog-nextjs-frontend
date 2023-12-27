@@ -1,5 +1,5 @@
-import BlogHeader from "@/components/BlogHeader/BlogHeader";
 import "./bloglayout.scss";
+
 import PopularTags from "@/components/PopularTags/PopularTags";
 
 export default function BlogLayout({
@@ -9,7 +9,6 @@ export default function BlogLayout({
 }) {
   return (
     <main className="main">
-      <BlogHeader />
       {children}
       <PopularTags />
     </main>
