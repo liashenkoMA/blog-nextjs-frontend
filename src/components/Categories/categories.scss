@@ -6,7 +6,7 @@
 
   background-color: $background-element-color;
   border: 1px solid $border-color;
-  border-radius: 10px;
+  border-radius: 20px;
 
   @include media-767 {
     max-width: 290px;

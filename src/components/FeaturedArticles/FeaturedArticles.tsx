@@ -21,7 +21,7 @@ export default function FeaturedArticles() {
           <FeaturedArticlesCard />
           <FeaturedArticlesCard />
         </div>
-        <Link href="#" className="featuredarticles__link">
+        <Link href="/blog" className="featuredarticles__link">
           Show More Posts
           <Image
             src={arrow}

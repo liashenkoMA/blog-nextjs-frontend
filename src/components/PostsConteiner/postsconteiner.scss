@@ -1,8 +1,162 @@
 @import "../../app/variables.module.scss";
 @import "../../app/mixin";
 
-.blog__postsconteiner {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+.blog {
+  &__postsconteiner {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__newpost {
+    max-width: 900px;
+
+    @include media-767 {
+      max-width: 290px;
+    }
+
+    &_conteiner {
+      padding: 20px;
+
+      background-color: $background-element-color;
+      border: 1px solid $border-color;
+      border-radius: 20px;
+    }
+
+    &_images {
+      object-fit: cover;
+      border-radius: 20px;
+
+      @include media-767 {
+        width: 250px;
+        height: 200px;
+      }
+    }
+
+    &_informations {
+      padding: 20px 0px 20px 0px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &_info {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      color: $grey;
+      display: flex;
+
+      @include media-767 {
+        font-size: 14px;
+      }
+    }
+
+    &_timeread-icon {
+      padding-right: 3px;
+    }
+
+    &_title {
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 33px;
+      color: $title-posts-color;
+
+      @include media-767 {
+        font-size: 24px;
+      }
+    }
+
+    &_descriptions {
+      padding-top: 25px;
+      padding-bottom: 25px;
+
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24px;
+      color: $text-color;
+    }
+
+    &_nav {
+      padding-top: 20px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &_author {
+      display: flex;
+      align-items: center;
+    }
+
+    &_author-photo {
+      border: none;
+      border-radius: 24px;
+    }
+
+    &_author-info {
+      padding-left: 10px;
+    }
+
+    &_author-name {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 16px;
+      color: $white;
+      opacity: 0.7;
+    }
+
+    &_date-publick {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 16px;
+      color: $white;
+      opacity: 0.7;
+    }
+
+    &_round-pic {
+      width: 48px;
+      height: 48px;
+
+      margin-right: 55px;
+
+      border: none;
+      border-radius: 24px;
+      z-index: 0;
+
+      background-color: $background-color;
+    }
+
+    &_nav-link {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      color: $light-blue;
+
+      position: relative;
+
+      @include hover {
+        color: $blue;
+      }
+    }
+
+    &_nav-link_type_text {
+      position: absolute;
+      top: 12px;
+      right: 0;
+      z-index: 1;
+    }
+
+    &_link-color {
+      @include hover {
+        color: $blue;
+      }
+    }
+  }
+
+  &__oldposts {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
 }
