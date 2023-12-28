@@ -1,0 +1,121 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.postheader {
+  padding-top: 50px;
+
+  width: 100%;
+
+  &__conteiner {
+    max-width: 1280px;
+    margin: 0px auto;
+
+    display: flex;
+
+    @include media-1439 {
+      max-width: 768px;
+    }
+
+    @include media-1023 {
+      max-width: 680px;
+      flex-direction: column;
+    }
+
+    @include media-767 {
+      max-width: 290px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 61px;
+
+    @include text-gradient;
+
+    @include media-767 {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 38px;
+    }
+  }
+
+  &__author {
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__avatar {
+    border: none;
+    border-radius: 24px;
+  }
+
+  &__author-info {
+    padding-left: 10px;
+  }
+
+  &__author-name {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: $white;
+    opacity: 0.7;
+  }
+
+  &__date-publick {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    color: $white;
+    opacity: 0.7;
+  }
+
+  &__share {
+    min-width: 300px;
+    margin-left: auto;
+
+    display: flex;
+    align-items: flex-end;
+
+    @include media-1023 {
+      padding-top: 10px;
+      margin-left: 0px;
+    }
+  }
+
+  &__share-text {
+    height: 60px;
+
+    padding-left: 30px;
+    margin-left: auto;
+
+    border-left: 1px solid $grey;
+    display: flex;
+    align-items: center;
+
+    @include media-1023 {
+      margin-left: 0px;
+      padding-left: 0px;
+
+      border-left: none;
+    }
+  }
+
+  &__share-link {
+    height: 60px;
+
+    margin-left: 30px;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__share-text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    color: $white;
+    opacity: 0.7;
+  }
+}
