@@ -5,16 +5,30 @@ import PopularTags from "@/components/PopularTags/PopularTags";
 import PostsConteiner from "@/components/PostsConteiner/PostsConteiner";
 import Sidebar from "@/components/Sidebar/Sidebar";
 
-export default function Page({ params }: { params: { category: string } }) {
-  /* params.category - отлавливаю урл и могу по нему искать нужную карточку к примеру. Ну или еще зачем нибудь, пока хз */
+import { getCategories } from "@/utils/mainApi";
+
+type Item = {
+  name: string;
+  description: string;
+  imageurl: string;
+  id: string;
+};
+
+export default async function Page({
+  params,
+}: {
+  params: { category: string };
+}) {
+  const categories = await getCategories(params.category);
+  const categorie = categories.find((item: Item) => item.id === params.category);
 
   return (
     <>
-      <CategoryHeader />
+      <CategoryHeader categorie={categorie} />
       <section className="category">
         <div className="category__conteiner">
           <PostsConteiner />
-          <Sidebar />
+          <Sidebar categ={categories} />
         </div>
       </section>
       <PopularTags />

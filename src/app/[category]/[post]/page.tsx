@@ -1,14 +1,23 @@
-import PostHeader from "@/components/PostHeader/PostHeader";
 import "./post.scss";
+
 import PostContent from "@/components/PostContent/PostContent";
 import Sidebar from "@/components/Sidebar/Sidebar";
 
-export default function Page() {
+import { getCategories } from "@/utils/mainApi";
+
+export default async function Page({
+  params,
+}: {
+  params: { category: string };
+}) {
+
+  const categories = await getCategories(params.category);
+
   return (
     <section className="post">
       <div className="post__conteiner">
         <PostContent />
-        <Sidebar />
+        <Sidebar categ={categories} />
       </div>
     </section>
   );
