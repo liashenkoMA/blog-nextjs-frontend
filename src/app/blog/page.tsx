@@ -11,8 +11,7 @@ export default async function Page({
 }: {
   params: { category: string };
 }) {
-
-  const categories = await getCategories(params.category);
+  const categories = await getCategories();
 
   return (
     <>
@@ -20,7 +19,7 @@ export default async function Page({
       <section className="blog">
         <div className="blog__conteiner">
           <PostsConteiner />
-          <Sidebar categ={categories} />
+          <Sidebar categories={categories} />
         </div>
       </section>
     </>

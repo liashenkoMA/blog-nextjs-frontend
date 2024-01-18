@@ -1,17 +1,12 @@
+import { ICategories } from "@/interface/interface";
 import Categories from "../Categories/Categories";
 import "./sidebar.scss";
 
-type Categ = {
-  id: string,
-  name: string,
-  description: string,
-  imageurl: string,
-}
 
-export default function Sidebar({ categ }: { categ: Categ[] }) {
+export default function Sidebar({ categories }: { categories: ICategories[] }) {
   return (
     <aside className="blog__sidebar">
-      <Categories categ={categ} />
+      <Categories categories={categories} />
     </aside>
   );
 }

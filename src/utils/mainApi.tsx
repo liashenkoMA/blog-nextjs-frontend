@@ -1,5 +1,3 @@
-import { notFound } from "next/navigation";
-
 const auth = {
   baseUrl: "http://localhost:3000",
   headers: {
@@ -16,17 +14,20 @@ function checkResponse(res) {
   return res.json();
 }
 
-export async function getCategories(url) {
+export async function getCategories() {
   const res = await fetch(`${auth.baseUrl}/categories`, {
     headers: auth.headers,
     next: { revalidate: 1 },
   }).then(checkResponse);
 
-  const pagefound = res.some((item) => item.id === url);
+  return res;
+}
 
-  if (!pagefound) {
-    notFound();
-  }
+export async function getCategory(id) {
+  const res = await fetch(`${auth.baseUrl}/categories/${id}`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
 
   return res;
 }
