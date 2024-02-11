@@ -5,11 +5,12 @@ import avatar from "../../images/photo.jpg";
 import { ICategories } from "@/interface/interface";
 
 export default function CategoryHeader({
-  categorie,
+  category,
 }: {
-  categorie: ICategories;
+  category: ICategories;
 }) {
-  const { name, description, imageUrl } = categorie;
+
+  const x = category;
 
   return (
     <section className="categoryheader">
@@ -22,8 +23,8 @@ export default function CategoryHeader({
           className="categoryheader__image"
         />
         <div className="categoryheader__info">
-          <h2 className="categoryheader__title">{name}</h2>
-          <p className="categoryheader__text">{description}</p>
+          <h2 className="categoryheader__title">title</h2>
+          <p className="categoryheader__text">ffdfdf</p>
         </div>
       </div>
     </section>

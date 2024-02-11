@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@uiw/react-markdown-editor": "^6.0.0",
     "next": "14.0.4",
+    "next-mdx-remote": "^4.4.1",
+    "next-remove-imports": "^1.0.12",
     "react": "^18",
     "react-dom": "^18"
   },

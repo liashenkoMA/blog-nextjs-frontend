@@ -5,5 +5,6 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "styles")],
   },
 };
-
+const removeImports = require("next-remove-imports")();
+module.exports = removeImports({});
 module.exports = nextConfig;

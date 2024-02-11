@@ -8,6 +8,7 @@ import im from "../../images/photo.jpg";
 import PostCard from "../PostCard/PostCard";
 
 export default function PostsConteiner() {
+
   return (
     <div className="blog__postsconteiner">
       <div className="blog__newpost">

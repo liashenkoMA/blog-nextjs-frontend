@@ -1,0 +1,9 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.adminform {
+  &_conteiner {
+    max-width: 600px;
+    max-height: 600px;
+  }
+}
