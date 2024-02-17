@@ -2,8 +2,23 @@
 @import "../../app/mixin";
 
 .adminform {
-  &_conteiner {
-    max-width: 600px;
+  &__conteiner {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 100px;
+
+    max-width: 1240px;
     max-height: 600px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    &_input {
+      min-width: 600px;
+      margin: 20px 0px;
+    }
   }
 }

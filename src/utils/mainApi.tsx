@@ -7,6 +7,11 @@ const auth = {
   },
 };
 
+const author = {
+  author: "Максим Ляшенко",
+  avatarLink: "fsdfsdf",
+};
+
 function checkResponse(res) {
   if (!res.ok) {
     return Promise.reject(res);
@@ -15,31 +20,21 @@ function checkResponse(res) {
 }
 
 export async function getCategories() {
-  /*   const res = await fetch(`${auth.baseUrl}/categories`, {
+  const res = await fetch(`${auth.baseUrl}/categories`, {
     headers: auth.headers,
     next: { revalidate: 1 },
-  }).then(checkResponse); */
+  }).then(checkResponse);
 
-  return [
-    {
-      name: "fsdfs",
-      description: "fsdfsdf",
-    },
-  ];
+  return res;
 }
 
 export async function getCategory(id: string) {
-  /*   const res = await fetch(`${auth.baseUrl}/categories/${id}`, {
+  const res = await fetch(`${auth.baseUrl}/categories/${id}`, {
     headers: auth.headers,
     next: { revalidate: 1 },
-  }).then(checkResponse); */
+  }).then(checkResponse);
 
-  return [
-    {
-      name: "fsdfs",
-      description: "fsdfsdf",
-    },
-  ];
+  return res;
 }
 
 export async function getPages() {
@@ -60,8 +55,15 @@ export async function getPage(id: string) {
   return res;
 }
 
-export async function postPage(page) {
-  console.log(page)
+export async function postPage(
+  markdownVal,
+  urlPage,
+  pageTitle,
+  pageDescription,
+  pageHeader,
+  categoriesPage,
+  readTime
+) {
   const postPage = fetch(`${auth.baseUrl}/pages`, {
     method: "POST",
     headers: {
@@ -69,7 +71,17 @@ export async function postPage(page) {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "no-cors",
     },
-    body: JSON.stringify({ text: `${page}` }),
+    body: JSON.stringify({
+      url: urlPage,
+      metaTitle: pageTitle,
+      metaDescription: pageDescription,
+      header: pageHeader,
+      categories: categoriesPage,
+      text: `${markdownVal}`,
+      author: author,
+      publickDate: new Date().toISOString().slice(0, 10),
+      readTime: readTime,
+    }),
   }).then(checkResponse);
 
   return postPage;

@@ -7,14 +7,14 @@ import tg from "../../images/Telegram.svg";
 import vk from "../../images/VK.svg";
 import userphoto from "../../images/photo.jpg";
 
-export default function PostHeader() {
+export default function PostHeader({ page }) {
+  const author = page.author[0];
+
   return (
     <section className="postheader">
       <div className="postheader__conteiner">
         <div className="postheader__info">
-          <h1 className="postheader__title">
-            Digital Design That Will Help You Start Your Business
-          </h1>
+          <h1 className="postheader__title">{page.header}</h1>
           <div className="postheader__author">
             <Image
               src={userphoto}
@@ -24,8 +24,8 @@ export default function PostHeader() {
               className="postheader__avatar"
             />
             <div className="postheader__author-info">
-              <p className="postheader__author-name">Максим</p>
-              <p className="postheader__date-publick">27 june 2023</p>
+              <p className="postheader__author-name">{author.author}</p>
+              <p className="postheader__date-publick">{page.publickDate}</p>
             </div>
           </div>
         </div>

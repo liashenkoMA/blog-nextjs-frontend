@@ -1,5 +1,3 @@
-import PostHeader from "@/components/PostHeader/PostHeader";
-
 export default function PostLayout({
   children,
 }: {
@@ -7,7 +5,6 @@ export default function PostLayout({
 }) {
   return (
     <>
-      <PostHeader />
       {children}
     </>
   );

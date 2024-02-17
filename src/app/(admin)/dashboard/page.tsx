@@ -2,7 +2,7 @@ import AdminForm from "@/components/AdminForm/AdminForm";
 
 export default function Page() {
   return (
-    <main>
+    <main className="adminform">
       <AdminForm />
     </main>
   );

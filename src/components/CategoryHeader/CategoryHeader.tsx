@@ -10,8 +10,6 @@ export default function CategoryHeader({
   category: ICategories;
 }) {
 
-  const x = category;
-
   return (
     <section className="categoryheader">
       <div className="categoryheader__conteiner">
@@ -23,8 +21,8 @@ export default function CategoryHeader({
           className="categoryheader__image"
         />
         <div className="categoryheader__info">
-          <h2 className="categoryheader__title">title</h2>
-          <p className="categoryheader__text">ffdfdf</p>
+          <h2 className="categoryheader__title">{category.metaTitle}</h2>
+          <p className="categoryheader__text">{category.metaDescription}</p>
         </div>
       </div>
     </section>

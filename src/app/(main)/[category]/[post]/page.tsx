@@ -1,6 +1,7 @@
 import "./post.scss";
 
 import { CustomMDX } from "@/components/PostContent/PostContent";
+import PostHeader from "@/components/PostHeader/PostHeader";
 import Sidebar from "@/components/Sidebar/Sidebar";
 
 import { getCategories, getPage } from "@/utils/mainApi";
@@ -14,13 +15,16 @@ export default async function Page({
   const page = await getPage(params.post);
 
   return (
-    <section className="post">
-      <div className="post__conteiner">
-        <div className="post__content">
-          <CustomMDX source={page.text} />
+    <>
+      <PostHeader page={page} />
+      <section className="post">
+        <div className="post__conteiner">
+          <div className="post__content">
+            <CustomMDX source={page.text} />
+          </div>
+          <Sidebar categories={categories} />
         </div>
-        <Sidebar categories={categories} />
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
