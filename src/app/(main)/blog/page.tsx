@@ -4,7 +4,7 @@ import BlogHeader from "@/components/BlogHeader/BlogHeader";
 import PostsConteiner from "@/components/PostsConteiner/PostsConteiner";
 import Sidebar from "@/components/Sidebar/Sidebar";
 
-import { getCategories } from "@/utils/mainApi";
+import { getAllPages, getCategories } from "@/utils/mainApi";
 
 export default async function Page({
   params,
@@ -12,13 +12,14 @@ export default async function Page({
   params: { category: string };
 }) {
   const categories = await getCategories();
+  const pages = await getAllPages();
 
   return (
     <>
       <BlogHeader />
       <section className="blog">
         <div className="blog__conteiner">
-          <PostsConteiner />
+          <PostsConteiner pages={pages} />
           <Sidebar categories={categories} />
         </div>
       </section>

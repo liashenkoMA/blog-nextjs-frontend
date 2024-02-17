@@ -6,14 +6,20 @@ import Link from "next/link";
 import time from "../../images/Time.png";
 import im from "../../images/photo.jpg";
 import PostCard from "../PostCard/PostCard";
+import { IPage } from "@/interface/interface";
 
-export default function PostsConteiner() {
+export default function PostsConteiner({ pages }) {
+    const lastPage = pages.pop();
+    const otherPage = pages;
 
   return (
     <div className="blog__postsconteiner">
       <div className="blog__newpost">
         <div className="blog__newpost_conteiner">
-          <Link href="#" className="blog__newpost_images-link">
+          <Link
+            href={`${lastPage.categories}/${lastPage.url}`}
+            className="blog__newpost_images-link"
+          >
             <Image
               src={im}
               width={860}
@@ -25,10 +31,10 @@ export default function PostsConteiner() {
           </Link>
           <div className="blog__newpost_informations">
             <Link
-              href="#"
+              href={`${lastPage.categories}`}
               className="blog__newpost_info blog__newpost_link-color"
             >
-              #Design
+              {`#${lastPage.categories}`}
             </Link>
             <p className="blog__newpost_info">
               <Image
@@ -38,20 +44,17 @@ export default function PostsConteiner() {
                 alt="Time"
                 className="blog__newpost_timeread-icon"
               />
-              89 mins read
+              {lastPage.readTime}
             </p>
           </div>
           <Link
-            href="#"
+            href={`${lastPage.categories}/${lastPage.url}`}
             className="blog__newpost_title blog__newpost_link-color"
           >
-            Facts About Business That Will Help You Success
+            {lastPage.header}
           </Link>
           <p className="blog__newpost_descriptions">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut beatae
-            itaque quam molestias, autem deleniti qui expedita facilis deserunt.
-            Animi recusandae unde, praesentium corrupti totam provident itaque!
-            Numquam, deserunt reprehenderit!
+            {`${lastPage.text.slice(0, 250)}...`}
           </p>
           <div className="blog__newpost_nav">
             <div className="blog__newpost_author">
@@ -64,11 +67,18 @@ export default function PostsConteiner() {
                 className="blog__newpost_author-photo"
               />
               <div className="blog__newpost_author-info">
-                <p className="blog__newpost_author-name">Makcim</p>
-                <p className="blog__newpost_date-publick">27 june 2023</p>
+                <p className="blog__newpost_author-name">
+                  {lastPage.author[0].author}
+                </p>
+                <p className="blog__newpost_date-publick">
+                  {lastPage.publickDate}
+                </p>
               </div>
             </div>
-            <Link href="#" className="blog__newpost_nav-link">
+            <Link
+              href={`${lastPage.categories}/${lastPage.url}`}
+              className="blog__newpost_nav-link"
+            >
               <div className="blog__newpost_round-pic"></div>
               <p className="blog__newpost_nav-link_type_text">Read more</p>
             </Link>
@@ -76,11 +86,9 @@ export default function PostsConteiner() {
         </div>
       </div>
       <div className="blog__oldposts">
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
+        {otherPage.map((page: IPage) => (
+          <PostCard key={page.url} page={page} />
+        ))}
       </div>
     </div>
   );

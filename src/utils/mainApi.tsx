@@ -37,7 +37,16 @@ export async function getCategory(id: string) {
   return res;
 }
 
-export async function getPages() {
+export async function getAllPages() {
+  const res = await fetch(`${auth.baseUrl}/blogs`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
+export async function getCategoriesPages() {
   const res = await fetch(`${auth.baseUrl}/pages`, {
     headers: auth.headers,
     next: { revalidate: 1 },

@@ -5,7 +5,7 @@ import PopularTags from "@/components/PopularTags/PopularTags";
 import PostsConteiner from "@/components/PostsConteiner/PostsConteiner";
 import Sidebar from "@/components/Sidebar/Sidebar";
 
-import { getCategories, getCategory } from "@/utils/mainApi";
+import { getAllPages, getCategories, getCategory } from "@/utils/mainApi";
 import { ICategories } from "@/interface/interface";
 
 type Props = {
@@ -33,12 +33,16 @@ export default async function Page({
     (item: ICategories) => item.url === params.category
   );
 
+
+  const pages = await getAllPages(); //Поменять на поиск статей конкретной категории
+
+  
   return (
     <>
       <CategoryHeader category={category} />
       <section className="category">
         <div className="category__conteiner">
-          <PostsConteiner />
+          <PostsConteiner pages={pages} />
           <Sidebar categories={categories} />
         </div>
       </section>

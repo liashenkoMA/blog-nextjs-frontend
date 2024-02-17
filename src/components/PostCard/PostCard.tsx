@@ -7,10 +7,11 @@ import time from "../../images/Time.png";
 import calendar from "../../images/Calendar.png";
 import im from "../../images/photo.jpg";
 
-export default function PostCard() {
+export default function PostCard({ page }) {
+
   return (
     <div className="postcard">
-      <Link href="#" className="postcard__image-link">
+      <Link href={`${page.categories}/${page.url}`} className="postcard__image-link">
         <Image
           src={im}
           width={270}
@@ -21,16 +22,14 @@ export default function PostCard() {
         />
       </Link>
       <div className="postcard__info">
-        <Link href="#" className="postcard__categorie">
-          Categories
+        <Link href={`${page.categories}`} className="postcard__categorie">
+        {page.categories}
         </Link>
-        <Link href="#" className="postcard__title  postcard__link_color">
-          Helpful Tips for Working from Home as a Freelancer
+        <Link href={`${page.categories}/${page.url}`} className="postcard__title  postcard__link_color">
+        {page.header}
         </Link>
         <p className="postcard__description">
-          Infuse the timeless elegance of Parisian aesthetics into your living
-          space with expert design guidance egance of Parisian aesthetics into
-          your living space with expert design guidance
+        {`${page.text.slice(0, 250)}...`}
         </p>
         <div className="postcard__times">
           <p className="postcard__time postcard__time_type_publick">
@@ -41,7 +40,7 @@ export default function PostCard() {
               alt="Time"
               className="postcard__timeread-icon"
             />
-            25 April 2023
+            {page.publickDate}
           </p>
           <p className="postcard__time postcard__time_type_read">
             <Image
@@ -51,7 +50,7 @@ export default function PostCard() {
               alt="Time"
               className="postcard__timeread-icon"
             />
-            5 mins read
+            {page.readTime}
           </p>
         </div>
       </div>

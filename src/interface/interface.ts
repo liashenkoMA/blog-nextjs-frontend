@@ -7,13 +7,19 @@ export interface ICategories {
   imageUrl: string;
 }
 
-/* export interface IPage {
-  markdownVal: string;
-  urlPage: string;
-  pageTitle: string;
-  pageDescription: string;
-  pageHeader: string;
-  categoriesPage: string;
+interface IAuthor {
+  author: string;
+  avatarLink: string;
+}
+
+export interface IPage {
+  text: string;
+  url: string;
+  title: string;
+  description: string;
+  header: string;
+  categories: string;
+  publickDate: string;
+  author: [IAuthor];
   readTime: string;
 }
- */
