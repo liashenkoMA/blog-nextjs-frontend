@@ -6,8 +6,9 @@ import Image from "next/image";
 import time from "../../images/Time.png";
 import calendar from "../../images/Calendar.png";
 import im from "../../images/photo.jpg";
+import { IPage } from "@/interface/interface";
 
-export default function PostCard({ page }) {
+export default function PostCard({ page }: { page: IPage }) {
 
   return (
     <div className="postcard">

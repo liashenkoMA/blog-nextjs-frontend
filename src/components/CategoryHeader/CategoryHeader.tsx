@@ -9,7 +9,6 @@ export default function CategoryHeader({
 }: {
   category: ICategories;
 }) {
-
   return (
     <section className="categoryheader">
       <div className="categoryheader__conteiner">

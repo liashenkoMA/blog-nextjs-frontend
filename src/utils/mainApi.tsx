@@ -65,13 +65,13 @@ export async function getPage(id: string) {
 }
 
 export async function postPage(
-  markdownVal,
-  urlPage,
-  pageTitle,
-  pageDescription,
-  pageHeader,
-  categoriesPage,
-  readTime
+  markdownVal: string,
+  urlPage: string,
+  pageTitle: string,
+  pageDescription: string,
+  pageHeader: string,
+  categoriesPage: string,
+  readTime: string
 ) {
   const postPage = fetch(`${auth.baseUrl}/pages`, {
     method: "POST",

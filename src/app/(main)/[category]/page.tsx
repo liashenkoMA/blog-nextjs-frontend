@@ -1,11 +1,10 @@
 import "./category.scss";
 import type { Metadata } from "next";
 import CategoryHeader from "@/components/CategoryHeader/CategoryHeader";
-import PopularTags from "@/components/PopularTags/PopularTags";
 import PostsConteiner from "@/components/PostsConteiner/PostsConteiner";
 import Sidebar from "@/components/Sidebar/Sidebar";
 
-import { getAllPages, getCategories, getCategory } from "@/utils/mainApi";
+import { getCategories, getCategory } from "@/utils/mainApi";
 import { ICategories } from "@/interface/interface";
 
 type Props = {
@@ -14,8 +13,10 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const id = params.category;
-  const product = await getCategory(id);
+  const categories = await getCategories();
+  const product = categories.find(
+    (item: ICategories) => item.url === params.category
+  );
 
   return {
     title: product.metaTitle,
@@ -32,11 +33,8 @@ export default async function Page({
   const category = categories.find(
     (item: ICategories) => item.url === params.category
   );
+  const pages = await getCategory(params.category);
 
-
-  const pages = await getAllPages(); //Поменять на поиск статей конкретной категории
-
-  
   return (
     <>
       <CategoryHeader category={category} />
@@ -46,7 +44,6 @@ export default async function Page({
           <Sidebar categories={categories} />
         </div>
       </section>
-      <PopularTags />
     </>
   );
 }
