@@ -5,11 +5,15 @@ import Image from "next/image";
 import time from "../../images/Time.png";
 import calendar from "../../images/Calendar.png";
 import im from "../../images/photo.jpg";
+import { IPage } from "@/interface/interface";
 
-export default function RecentPostsCard() {
+export default function RecentPostsCard({ post }: { post: IPage }) {
   return (
     <div className="recentpostscard">
-      <Link href="#" className="recentpostscard__image-link">
+      <Link
+        href={`${post.categories}/${post.url}`}
+        className="recentpostscard__image-link"
+      >
         <Image
           src={im}
           width={200}
@@ -20,12 +24,14 @@ export default function RecentPostsCard() {
         />
       </Link>
       <div className="recentpostscard__info">
-        <Link href="#" className="recentpostscard__title  link_color">
-          Helpful Tips for Working from Home as a Freelancer
+        <Link
+          href={`${post.categories}/${post.url}`}
+          className="recentpostscard__title  link_color"
+        >
+          {post.header}
         </Link>
         <p className="recentpostscard__description">
-          Infuse the timeless elegance of Parisian aesthetics into your living
-          space with expert design guidance
+          {`${post.text.slice(0, 100)}...`}
         </p>
         <div className="recentpostscard__times">
           <p className="recentpostscard__time recentpostscard__time_type_publick">

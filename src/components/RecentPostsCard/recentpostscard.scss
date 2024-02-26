@@ -35,10 +35,16 @@
   }
 
   &__title {
+    max-width: 400px;
+
     font-size: 24px;
     font-weight: 500;
     line-height: 32px;
     color: $title-posts-color;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 
     @include media-767 {
       padding-top: 20px;
