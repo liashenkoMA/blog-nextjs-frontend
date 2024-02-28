@@ -5,7 +5,7 @@ import "@uiw/react-markdown-preview/markdown.css";
 import "./adminform.scss";
 
 import { useState } from "react";
-import { postPage } from "@/utils/mainApi";
+import { postFile, postPage } from "@/utils/mainApi";
 
 const MarkdownEditor = dynamic(
   () => import("@uiw/react-markdown-editor").then((mod) => mod.default),
@@ -20,6 +20,9 @@ export default function AdminForm() {
   const [pageHeader, setPageHeader] = useState("");
   const [categoriesPage, setCategoriesPage] = useState("");
   const [readTime, setReadTime] = useState("");
+
+  const [file, setFile] = useState();
+  const [fileImage, setFileImage] = useState();
 
   function handleChangeUrl(e) {
     setUrlPage(e.target.value);
@@ -57,6 +60,18 @@ export default function AdminForm() {
       categoriesPage,
       readTime
     );
+  }
+
+  function handleChangeFile(e) {
+    setFile(e.target.files[0]);
+  }
+
+  function handleSubmitFile(e) {
+    e.preventDefault();
+
+    postFile(file).then((res) => {
+      setFileImage(res.filePath);
+    });
   }
 
   return (
@@ -123,6 +138,22 @@ export default function AdminForm() {
             value={readTime}
           ></input>
         </label>
+        <button type="submit">Click</button>
+      </form>
+      <form className="adminform__form" onSubmit={handleSubmitFile}>
+        <label>
+          <input
+            type="file"
+            className="adminform__form_input"
+            accept="image/*,.png,.jpg,.gif,.web,"
+            onChange={handleChangeFile}
+          />
+        </label>
+        <div>
+          <p>---------</p>
+          <p>Результат - {fileImage}</p>
+          <p>---------</p>
+        </div>
         <button type="submit">Click</button>
       </form>
     </section>

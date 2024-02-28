@@ -46,6 +46,18 @@ export async function getAllPages() {
   return res;
 }
 
+export async function postFile(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await fetch(`${auth.baseUrl}/photos/upload`, {
+    method: "POST",
+    body: formData,
+  }).then(checkResponse);
+
+  return res;
+}
+
 export async function getCategoriesPages() {
   const res = await fetch(`${auth.baseUrl}/pages`, {
     headers: auth.headers,
@@ -75,11 +87,7 @@ export async function postPage(
 ) {
   const postPage = fetch(`${auth.baseUrl}/pages`, {
     method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "no-cors",
-    },
+    headers: auth.headers,
     body: JSON.stringify({
       url: urlPage,
       metaTitle: pageTitle,
