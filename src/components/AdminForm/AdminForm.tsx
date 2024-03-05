@@ -15,17 +15,23 @@ const MarkdownEditor = dynamic(
 export default function AdminForm() {
   const [markdownVal, setMarkdownVal] = useState("");
   const [urlPage, setUrlPage] = useState("");
+  const [postImage, setPostImage] = useState("");
   const [pageTitle, setPageTitle] = useState("");
   const [pageDescription, setPageDescription] = useState("");
   const [pageHeader, setPageHeader] = useState("");
   const [categoriesPage, setCategoriesPage] = useState("");
   const [readTime, setReadTime] = useState("");
+  const [popularPage, setPopularPage] = useState(false);
 
   const [file, setFile] = useState();
   const [fileImage, setFileImage] = useState();
 
   function handleChangeUrl(e) {
     setUrlPage(e.target.value);
+  }
+
+  function handlePostImage(e) {
+    setPostImage(e.target.value);
   }
 
   function handleChangeTitle(e) {
@@ -48,17 +54,23 @@ export default function AdminForm() {
     setReadTime(e.target.value);
   }
 
+  function handlePopularPage(e) {
+    setPopularPage(e.target.checked);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
     postPage(
       markdownVal,
       urlPage,
+      postImage,
       pageTitle,
       pageDescription,
       pageHeader,
       categoriesPage,
-      readTime
+      readTime,
+      popularPage
     );
   }
 
@@ -91,6 +103,15 @@ export default function AdminForm() {
             className="adminform__form_input"
             onChange={handleChangeUrl}
             value={urlPage}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            placeholder="postImage"
+            className="adminform__form_input"
+            onChange={handlePostImage}
+            value={postImage}
           ></input>
         </label>
         <label>
@@ -138,9 +159,17 @@ export default function AdminForm() {
             value={readTime}
           ></input>
         </label>
+        <label>
+          <span>Популярная статья? xD Да/Нет</span>
+          <input
+            type="checkbox"
+            className="adminform__form_input"
+            onChange={handlePopularPage}
+          ></input>
+        </label>
         <button type="submit">Click</button>
       </form>
-      <form className="adminform__form" onSubmit={handleSubmitFile}>
+      <form className="adminform__form form__image" onSubmit={handleSubmitFile}>
         <label>
           <input
             type="file"
@@ -149,12 +178,12 @@ export default function AdminForm() {
             onChange={handleChangeFile}
           />
         </label>
+        <button type="submit">Click</button>
         <div>
           <p>---------</p>
-          <p>Результат - {fileImage}</p>
+          <p>URL картинки - {fileImage}</p>
           <p>---------</p>
         </div>
-        <button type="submit">Click</button>
       </form>
     </section>
   );

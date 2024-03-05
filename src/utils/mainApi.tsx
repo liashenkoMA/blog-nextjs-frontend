@@ -79,17 +79,20 @@ export async function getPage(id: string) {
 export async function postPage(
   markdownVal: string,
   urlPage: string,
+  postImage: string,
   pageTitle: string,
   pageDescription: string,
   pageHeader: string,
   categoriesPage: string,
-  readTime: string
+  readTime: string,
+  popularPage: boolean,
 ) {
   const postPage = fetch(`${auth.baseUrl}/pages`, {
     method: "POST",
     headers: auth.headers,
     body: JSON.stringify({
       url: urlPage,
+      postImage: postImage,
       metaTitle: pageTitle,
       metaDescription: pageDescription,
       header: pageHeader,
@@ -97,7 +100,9 @@ export async function postPage(
       text: `${markdownVal}`,
       author: author,
       publickDate: new Date().toISOString().slice(0, 10),
+      changekDate: new Date().toISOString().slice(0, 10),
       readTime: readTime,
+      popularPage: popularPage,
     }),
   }).then(checkResponse);
 

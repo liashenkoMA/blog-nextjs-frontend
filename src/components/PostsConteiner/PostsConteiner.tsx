@@ -56,7 +56,7 @@ export default function PostsConteiner({ pages }: { pages: IPage[] }) {
                     alt="Time"
                     className="blog__newpost_timeread-icon"
                   />
-                  {lastPage.readTime}
+                  {lastPage.readTime} mins read
                 </p>
               </div>
               <Link
