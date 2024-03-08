@@ -15,6 +15,16 @@
       max-width: 290px;
     }
 
+    &_tags {
+      display: flex;
+    }
+
+    &_tag {
+      @include nth-child(2) {
+        padding-left: 5px;
+      }
+    }
+
     &_conteiner {
       padding: 20px;
 

@@ -4,7 +4,12 @@ import CategoryHeader from "@/components/CategoryHeader/CategoryHeader";
 import PostsConteiner from "@/components/PostsConteiner/PostsConteiner";
 import Sidebar from "@/components/Sidebar/Sidebar";
 
-import { getCategories, getCategory } from "@/utils/mainApi";
+import {
+  getCategories,
+  getCategoryPages,
+  getTag,
+  getTagPages,
+} from "@/utils/mainApi";
 import { ICategories } from "@/interface/interface";
 
 type Props = {
@@ -14,9 +19,17 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const categories = await getCategories();
-  const product = categories.find(
+  let category = categories.find(
     (item: ICategories) => item.url === params.category
   );
+  let product;
+
+  if (category === undefined) {
+    const tag = await getTag(params.category);
+    product = tag[0];
+  } else {
+    product = category;
+  }
 
   return {
     title: product.metaTitle,
@@ -30,10 +43,18 @@ export default async function Page({
   params: { category: string };
 }) {
   const categories = await getCategories();
-  const category = categories.find(
+  let category = categories.find(
     (item: ICategories) => item.url === params.category
   );
-  const pages = await getCategory(params.category);
+  let pages;
+
+  if (category === undefined) {
+    const tag = await getTag(params.category);
+    category = tag[0];
+    pages = await getTagPages(params.category);
+  } else {
+    pages = await getCategoryPages(params.category);
+  }
 
   return (
     <>

@@ -1,7 +1,6 @@
 import "./categoryheader.scss";
 import Image from "next/image";
 
-import avatar from "../../images/photo.jpg";
 import { ICategories } from "@/interface/interface";
 
 export default function CategoryHeader({
@@ -13,7 +12,7 @@ export default function CategoryHeader({
     <section className="categoryheader">
       <div className="categoryheader__conteiner">
         <Image
-          src={avatar}
+          src={category.imageUrl}
           width={211}
           height={211}
           alt="Фото категории"

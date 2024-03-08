@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import time from "../../images/Time.png";
-import im from "../../images/photo.jpg";
 import PostCard from "../PostCard/PostCard";
 import { IPage } from "@/interface/interface";
 import { useEffect, useState } from "react";
@@ -33,7 +32,7 @@ export default function PostsConteiner({ pages }: { pages: IPage[] }) {
                 className="blog__newpost_images-link"
               >
                 <Image
-                  src={im}
+                  src={lastPage.postImage}
                   width={860}
                   height={500}
                   alt="#"
@@ -42,12 +41,17 @@ export default function PostsConteiner({ pages }: { pages: IPage[] }) {
                 />
               </Link>
               <div className="blog__newpost_informations">
-                <Link
-                  href={`${lastPage.categories}`}
-                  className="blog__newpost_info blog__newpost_link-color"
-                >
-                  {`#${lastPage.categories}`}
-                </Link>
+                <div className="blog__newpost_tags">
+                  {lastPage.tags.map((tag) => (
+                    <Link
+                      key={tag.url}
+                      href={`${tag.url}`}
+                      className="blog__newpost_info blog__newpost_tag blog__newpost_link-color"
+                    >
+                      {`#${tag.name}`}
+                    </Link>
+                  ))}
+                </div>
                 <p className="blog__newpost_info">
                   <Image
                     src={time}
@@ -71,7 +75,7 @@ export default function PostsConteiner({ pages }: { pages: IPage[] }) {
               <div className="blog__newpost_nav">
                 <div className="blog__newpost_author">
                   <Image
-                    src={im}
+                    src={lastPage.author[0].avatarLink}
                     width={48}
                     height={48}
                     loading="lazy"

@@ -4,8 +4,15 @@ import "@uiw/react-markdown-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 import "./adminform.scss";
 
-import { useState } from "react";
-import { postFile, postPage } from "@/utils/mainApi";
+import { useEffect, useState } from "react";
+import {
+  getTags,
+  postCategory,
+  postFile,
+  postPage,
+  postTags,
+} from "@/utils/mainApi";
+import { ITags } from "@/interface/interface";
 
 const MarkdownEditor = dynamic(
   () => import("@uiw/react-markdown-editor").then((mod) => mod.default),
@@ -16,6 +23,7 @@ export default function AdminForm() {
   const [markdownVal, setMarkdownVal] = useState("");
   const [urlPage, setUrlPage] = useState("");
   const [postImage, setPostImage] = useState("");
+  const [postAltImage, setPostAltImage] = useState("");
   const [pageTitle, setPageTitle] = useState("");
   const [pageDescription, setPageDescription] = useState("");
   const [pageHeader, setPageHeader] = useState("");
@@ -23,8 +31,14 @@ export default function AdminForm() {
   const [readTime, setReadTime] = useState("");
   const [popularPage, setPopularPage] = useState(false);
 
-  const [file, setFile] = useState();
-  const [fileImage, setFileImage] = useState();
+  const [tags, setTags] = useState([]);
+  const [checkTags, setCheckTags] = useState([]);
+
+  useEffect(() => {
+    getTags().then((res) => {
+      setTags(res);
+    });
+  }, []);
 
   function handleChangeUrl(e) {
     setUrlPage(e.target.value);
@@ -32,6 +46,10 @@ export default function AdminForm() {
 
   function handlePostImage(e) {
     setPostImage(e.target.value);
+  }
+
+  function handlePostAltImage(e) {
+    setPostAltImage(e.target.value);
   }
 
   function handleChangeTitle(e) {
@@ -58,6 +76,15 @@ export default function AdminForm() {
     setPopularPage(e.target.checked);
   }
 
+  function checkTagsForPage(e) {
+    if (e.target.checked === true) {
+      const tag = tags.find((tag: ITags) => tag.url === e.target.value);
+      setCheckTags([tag, ...checkTags]);
+    } else {
+      setCheckTags((state) => state.filter((c) => c.url !== e.target.value));
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -65,14 +92,21 @@ export default function AdminForm() {
       markdownVal,
       urlPage,
       postImage,
+      postAltImage,
       pageTitle,
       pageDescription,
       pageHeader,
       categoriesPage,
       readTime,
-      popularPage
+      popularPage,
+      checkTags
     );
   }
+
+  /* File */
+
+  const [file, setFile] = useState();
+  const [fileImage, setFileImage] = useState();
 
   function handleChangeFile(e) {
     setFile(e.target.files[0]);
@@ -84,6 +118,110 @@ export default function AdminForm() {
     postFile(file).then((res) => {
       setFileImage(res.filePath);
     });
+  }
+
+  /* Tags */
+
+  const [urlTags, setUrlTags] = useState("");
+  const [metaTitleTags, setMetaTitleTags] = useState("");
+  const [metaDescriptionTags, setMetaDescriptionTags] = useState("");
+  const [nameTags, setNameTags] = useState("");
+  const [descriptionTags, setDescriptionTags] = useState("");
+  const [imageUrlTags, setImageUrlTags] = useState("");
+  const [imageAltTags, setImageAltTags] = useState("");
+
+  function handleChangeUrlTags(e) {
+    setUrlTags(e.target.value);
+  }
+
+  function handleChangeMetaTitleTags(e) {
+    setMetaTitleTags(e.target.value);
+  }
+
+  function handleChangeMetaDescriptionTags(e) {
+    setMetaDescriptionTags(e.target.value);
+  }
+
+  function handleChangeNameTags(e) {
+    setNameTags(e.target.value);
+  }
+
+  function handleChangeDescriptionTags(e) {
+    setDescriptionTags(e.target.value);
+  }
+
+  function handleChangeImageUrlTags(e) {
+    setImageUrlTags(e.target.value);
+  }
+
+  function handleChangeImageAltTags(e) {
+    setImageAltTags(e.target.value);
+  }
+
+  function handleSubmitTags(e) {
+    e.preventDefault();
+
+    postTags(
+      urlTags,
+      metaTitleTags,
+      metaDescriptionTags,
+      nameTags,
+      descriptionTags,
+      imageUrlTags,
+      imageAltTags
+    );
+  }
+
+  /* Category */
+
+  const [urlCategory, setUrlCategory] = useState("");
+  const [metaTitleCategory, setMetaTitleCategory] = useState("");
+  const [metaDescriptionCategory, setMetaDescriptionCategory] = useState("");
+  const [nameCategory, setNameCategory] = useState("");
+  const [descriptionCategory, setDescriptionCategory] = useState("");
+  const [imageUrlCategory, setImageUrlCategory] = useState("");
+  const [imageAltCategory, setImageAltCategory] = useState("");
+
+  function handleChangeUrlCategory(e) {
+    setUrlCategory(e.target.value);
+  }
+
+  function handleChangeMetaTitleCategory(e) {
+    setMetaTitleCategory(e.target.value);
+  }
+
+  function handleChangeMetaDescriptionCategory(e) {
+    setMetaDescriptionCategory(e.target.value);
+  }
+
+  function handleChangeNameCategory(e) {
+    setNameCategory(e.target.value);
+  }
+
+  function handleChangeDescriptionCategory(e) {
+    setDescriptionCategory(e.target.value);
+  }
+
+  function handleChangeImageUrlCategory(e) {
+    setImageUrlCategory(e.target.value);
+  }
+
+  function handleChangeImageAltCategory(e) {
+    setImageAltCategory(e.target.value);
+  }
+
+  function handleSubmitCategory(e) {
+    e.preventDefault();
+
+    postCategory(
+      urlCategory,
+      metaTitleCategory,
+      metaDescriptionCategory,
+      nameCategory,
+      descriptionCategory,
+      imageUrlCategory,
+      imageAltCategory,
+    );
   }
 
   return (
@@ -117,6 +255,15 @@ export default function AdminForm() {
         <label>
           <input
             type="text"
+            placeholder="postAltImage"
+            className="adminform__form_input"
+            onChange={handlePostAltImage}
+            value={postAltImage}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
             placeholder="title"
             className="adminform__form_input"
             onChange={handleChangeTitle}
@@ -144,7 +291,7 @@ export default function AdminForm() {
         <label>
           <input
             type="text"
-            placeholder="Категория"
+            placeholder="Url категории!!!"
             className="adminform__form_input"
             onChange={handleChanhgeCategoriesPage}
             value={categoriesPage}
@@ -167,9 +314,25 @@ export default function AdminForm() {
             onChange={handlePopularPage}
           ></input>
         </label>
-        <button type="submit">Click</button>
+        <div>
+          {tags.map((tag) => (
+            <div key={tag.url} className="adminform__form_list">
+              <p className="adminform__form_list-page">{tag.name}</p>
+              <input
+                type="checkbox"
+                value={tag.url}
+                onClick={checkTagsForPage}
+              ></input>
+            </div>
+          ))}
+        </div>
+        <button type="submit">Опубликовать статью</button>
       </form>
-      <form className="adminform__form form__image" onSubmit={handleSubmitFile}>
+      <form
+        className="adminform__form form__position"
+        onSubmit={handleSubmitFile}
+      >
+        <span>Images</span>
         <label>
           <input
             type="file"
@@ -178,12 +341,138 @@ export default function AdminForm() {
             onChange={handleChangeFile}
           />
         </label>
-        <button type="submit">Click</button>
         <div>
           <p>---------</p>
           <p>URL картинки - {fileImage}</p>
           <p>---------</p>
         </div>
+        <button type="submit">Загрузить картинку</button>
+      </form>
+      <form
+        className="adminform__form form__position"
+        onSubmit={handleSubmitTags}
+      >
+        <span>Tags</span>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="url"
+            onChange={handleChangeUrlTags}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="metaTitle"
+            onChange={handleChangeMetaTitleTags}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="metaDescription"
+            onChange={handleChangeMetaDescriptionTags}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="name"
+            onChange={handleChangeNameTags}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="description"
+            onChange={handleChangeDescriptionTags}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="imageUrl"
+            onChange={handleChangeImageUrlTags}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="Alt image"
+            onChange={handleChangeImageAltTags}
+          ></input>
+        </label>
+        <button type="submit">Создать Tag</button>
+      </form>
+      <form
+        className="adminform__form form__position"
+        onSubmit={handleSubmitCategory}
+      >
+        <span>Категории</span>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="url"
+            onChange={handleChangeUrlCategory}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="metaTitle"
+            onChange={handleChangeMetaTitleCategory}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="metaDescription"
+            onChange={handleChangeMetaDescriptionCategory}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="name"
+            onChange={handleChangeNameCategory}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="description"
+            onChange={handleChangeDescriptionCategory}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="imageUrl"
+            onChange={handleChangeImageUrlCategory}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="text"
+            className="adminform__form_input"
+            placeholder="Alt image"
+            onChange={handleChangeImageAltCategory}
+          ></input>
+        </label>
+        <button type="submit">Создать категорию</button>
       </form>
     </section>
   );

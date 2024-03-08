@@ -23,7 +23,7 @@ export default function Categories({
               className="categories__link"
             >
               <Image
-                src={ap}
+                src={category.imageUrl}
                 width={32}
                 height={32}
                 alt="Kategor"

@@ -1,3 +1,5 @@
+import { ITags } from "@/interface/interface";
+
 const auth = {
   baseUrl: "http://localhost:3000",
   headers: {
@@ -9,7 +11,7 @@ const auth = {
 
 const author = {
   author: "Максим Ляшенко",
-  avatarLink: "fsdfsdf",
+  avatarLink: "http://localhost:3000/photos/upload/banner-2_1709892067993.jpg",
 };
 
 function checkResponse(res) {
@@ -19,8 +21,65 @@ function checkResponse(res) {
   return res.json();
 }
 
+/* Tags */
+
+export async function postTags(
+  urlTags: string,
+  metaTitleTags: string,
+  metaDescriptionTags: string,
+  nameTags: string,
+  descriptionTags: string,
+  imageUrlTags: string,
+  imageAltTags: string
+) {
+  const postTag = fetch(`${auth.baseUrl}/tags`, {
+    method: "POST",
+    headers: auth.headers,
+    body: JSON.stringify({
+      url: urlTags,
+      metaTitle: metaTitleTags,
+      metaDescription: metaDescriptionTags,
+      name: nameTags,
+      description: descriptionTags,
+      imageUrl: imageUrlTags,
+      imageAlt: imageAltTags,
+    }),
+  }).then(checkResponse);
+
+  return postTag;
+}
+
+export async function getTags() {
+  const res = await fetch(`${auth.baseUrl}/tags`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
+export async function getTag(id: string) {
+  const res = await fetch(`${auth.baseUrl}/tags/${id}`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
+/* Category */
+
 export async function getCategories() {
   const res = await fetch(`${auth.baseUrl}/categories`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
+export async function getCategoryPages(id: string) {
+  const res = await fetch(`${auth.baseUrl}/categories/pages/${id}`, {
     headers: auth.headers,
     next: { revalidate: 1 },
   }).then(checkResponse);
@@ -37,14 +96,33 @@ export async function getCategory(id: string) {
   return res;
 }
 
-export async function getAllPages() {
-  const res = await fetch(`${auth.baseUrl}/blogs`, {
+export async function postCategory(
+  urlCategory: string,
+  metaTitleCategory: string,
+  metaDescriptionCategory: string,
+  nameCategory: string,
+  descriptionCategory: string,
+  imageUrlCategory: string,
+  imageAltCategory: string
+) {
+  const postCategory = fetch(`${auth.baseUrl}/categories`, {
+    method: "POST",
     headers: auth.headers,
-    next: { revalidate: 1 },
+    body: JSON.stringify({
+      url: urlCategory,
+      metaTitle: metaTitleCategory,
+      metaDescription: metaDescriptionCategory,
+      name: nameCategory,
+      description: descriptionCategory,
+      imageUrl: imageUrlCategory,
+      imageAlt: imageAltCategory,
+    }),
   }).then(checkResponse);
 
-  return res;
+  return postCategory;
 }
+
+/* File */
 
 export async function postFile(file) {
   const formData = new FormData();
@@ -58,8 +136,28 @@ export async function postFile(file) {
   return res;
 }
 
-export async function getCategoriesPages() {
+/* Page */
+
+export async function getAllPages() {
+  const res = await fetch(`${auth.baseUrl}/blogs/`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
+export async function getFeaturedPages() {
   const res = await fetch(`${auth.baseUrl}/pages`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
+export async function getTagPages(id) {
+  const res = await fetch(`${auth.baseUrl}/pages/tag/${id}`, {
     headers: auth.headers,
     next: { revalidate: 1 },
   }).then(checkResponse);
@@ -80,12 +178,14 @@ export async function postPage(
   markdownVal: string,
   urlPage: string,
   postImage: string,
+  postAltImage: string,
   pageTitle: string,
   pageDescription: string,
   pageHeader: string,
   categoriesPage: string,
   readTime: string,
   popularPage: boolean,
+  checkTags: ITags
 ) {
   const postPage = fetch(`${auth.baseUrl}/pages`, {
     method: "POST",
@@ -93,6 +193,7 @@ export async function postPage(
     body: JSON.stringify({
       url: urlPage,
       postImage: postImage,
+      postAltImage: postAltImage,
       metaTitle: pageTitle,
       metaDescription: pageDescription,
       header: pageHeader,
@@ -103,6 +204,7 @@ export async function postPage(
       changekDate: new Date().toISOString().slice(0, 10),
       readTime: readTime,
       popularPage: popularPage,
+      tags: checkTags,
     }),
   }).then(checkResponse);
 

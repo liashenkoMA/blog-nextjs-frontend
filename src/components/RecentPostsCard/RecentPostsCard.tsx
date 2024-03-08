@@ -4,7 +4,6 @@ import Image from "next/image";
 
 import time from "../../images/Time.png";
 import calendar from "../../images/Calendar.png";
-import im from "../../images/photo.jpg";
 import { IPage } from "@/interface/interface";
 
 export default function RecentPostsCard({ post }: { post: IPage }) {
@@ -15,11 +14,11 @@ export default function RecentPostsCard({ post }: { post: IPage }) {
         className="recentpostscard__image-link"
       >
         <Image
-          src={im}
+          src={post.postImage}
           width={200}
           height={180}
           loading="lazy"
-          alt="Card photo"
+          alt={post.postAltImage}
           className="recentpostscard__image"
         />
       </Link>
@@ -42,7 +41,7 @@ export default function RecentPostsCard({ post }: { post: IPage }) {
               alt="Time"
               className="recentpostscard__timeread-icon"
             />
-            25 April 2023
+            {post.publickDate}
           </p>
           <p className="recentpostscard__time recentpostscard__time_type_read">
             <Image
@@ -52,7 +51,7 @@ export default function RecentPostsCard({ post }: { post: IPage }) {
               alt="Time"
               className="recentpostscard__timeread-icon"
             />
-            5 mins read
+            {post.readTime} mins read
           </p>
         </div>
       </div>

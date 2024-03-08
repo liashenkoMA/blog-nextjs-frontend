@@ -5,16 +5,17 @@ import Image from "next/image";
 
 import time from "../../images/Time.png";
 import calendar from "../../images/Calendar.png";
-import im from "../../images/photo.jpg";
 import { IPage } from "@/interface/interface";
 
 export default function PostCard({ page }: { page: IPage }) {
-
   return (
     <div className="postcard">
-      <Link href={`${page.categories}/${page.url}`} className="postcard__image-link">
+      <Link
+        href={`${page.categories}/${page.url}`}
+        className="postcard__image-link"
+      >
         <Image
-          src={im}
+          src={page.postImage}
           width={270}
           height={270}
           loading="lazy"
@@ -24,13 +25,16 @@ export default function PostCard({ page }: { page: IPage }) {
       </Link>
       <div className="postcard__info">
         <Link href={`${page.categories}`} className="postcard__categorie">
-        {page.categories}
+          {page.categories}
         </Link>
-        <Link href={`${page.categories}/${page.url}`} className="postcard__title  postcard__link_color">
-        {page.header}
+        <Link
+          href={`${page.categories}/${page.url}`}
+          className="postcard__title  postcard__link_color"
+        >
+          {page.header}
         </Link>
         <p className="postcard__description">
-        {`${page.text.slice(0, 250)}...`}
+          {`${page.text.slice(0, 250)}...`}
         </p>
         <div className="postcard__times">
           <p className="postcard__time postcard__time_type_publick">
@@ -51,7 +55,7 @@ export default function PostCard({ page }: { page: IPage }) {
               alt="Time"
               className="postcard__timeread-icon"
             />
-            {page.readTime}
+            {page.readTime} mins read
           </p>
         </div>
       </div>

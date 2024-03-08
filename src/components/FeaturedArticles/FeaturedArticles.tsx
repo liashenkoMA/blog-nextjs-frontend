@@ -4,8 +4,13 @@ import Link from "next/link";
 
 import arrow from "../../images/arrow-right.png";
 import FeaturedArticlesCard from "../FeaturedArticlesCard/FeaturedArticlesCard";
+import { IPage } from "@/interface/interface";
 
-export default function FeaturedArticles() {
+export default function FeaturedArticles({
+  featuredPosts,
+}: {
+  featuredPosts: IPage[];
+}) {
   return (
     <section className="featuredarticles">
       <div className="featuredarticles__conteiner">
@@ -14,12 +19,9 @@ export default function FeaturedArticles() {
           Discover the most outstanding articles in all topics
         </p>
         <div className="featuredarticles__cards">
-          <FeaturedArticlesCard />
-          <FeaturedArticlesCard />
-          <FeaturedArticlesCard />
-          <FeaturedArticlesCard />
-          <FeaturedArticlesCard />
-          <FeaturedArticlesCard />
+          {featuredPosts.map((post) => (
+            <FeaturedArticlesCard key={post.url} post={post} />
+          ))}
         </div>
         <Link href="/blog" className="featuredarticles__link">
           Show More Posts

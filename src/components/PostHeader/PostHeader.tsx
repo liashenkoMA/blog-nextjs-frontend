@@ -5,7 +5,6 @@ import Image from "next/image";
 
 import tg from "../../images/Telegram.svg";
 import vk from "../../images/VK.svg";
-import userphoto from "../../images/photo.jpg";
 
 export default function PostHeader({ page }) {
   const author = page.author[0];
@@ -17,7 +16,7 @@ export default function PostHeader({ page }) {
           <h1 className="postheader__title">{page.header}</h1>
           <div className="postheader__author">
             <Image
-              src={userphoto}
+              src={author.avatarLink}
               width={48}
               height={48}
               alt="Аватарка пользователя"

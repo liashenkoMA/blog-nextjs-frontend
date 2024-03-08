@@ -1,21 +1,21 @@
 import "./tag.scss";
 import Image from "next/image";
 
-import imgd from "../../images/photo.jpg";
 import Link from "next/link";
+import { ITags } from "@/interface/interface";
 
-export default function Tag() {
+export default function Tag({ tag }: { tag: ITags }) {
   return (
     <div className="tag">
-      <Link href="#" className="tag__link">
+      <Link href={`${tag.url}`} className="tag__link">
         <Image
-          src={imgd}
+          src={tag.imageUrl}
           width={32}
           height={32}
-          alt={`Tag ${"tag"}`}
+          alt={tag.imageAlt}
           className="tag__img"
         />
-        <p className="tag__description">Travel</p>
+        <p className="tag__description">{tag.name}</p>
       </Link>
     </div>
   );
