@@ -67,7 +67,7 @@ export async function getTag(id: string) {
   return res;
 }
 
-/* Category */
+/* Categories */
 
 export async function getCategories() {
   const res = await fetch(`${auth.baseUrl}/categories`, {
@@ -122,7 +122,7 @@ export async function postCategory(
   return postCategory;
 }
 
-/* File */
+/* Files */
 
 export async function postFile(file) {
   const formData = new FormData();
@@ -136,7 +136,7 @@ export async function postFile(file) {
   return res;
 }
 
-/* Page */
+/* Blog */
 
 export async function getAllPages() {
   const res = await fetch(`${auth.baseUrl}/blogs/`, {
@@ -146,6 +146,26 @@ export async function getAllPages() {
 
   return res;
 }
+
+export async function getLimitPages(id) {
+  const res = await fetch(`${auth.baseUrl}/blogs/pages/${id}`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
+export async function getCountPages() {
+  const res = await fetch(`${auth.baseUrl}/blogs/count`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
+/* Pages */
 
 export async function getFeaturedPages() {
   const res = await fetch(`${auth.baseUrl}/pages`, {

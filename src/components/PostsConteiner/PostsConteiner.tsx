@@ -8,12 +8,19 @@ import time from "../../images/Time.png";
 import PostCard from "../PostCard/PostCard";
 import { IPage } from "@/interface/interface";
 import { useEffect, useState } from "react";
+import Pagination from "../Pagination/Pagination";
 
-export default function PostsConteiner({ pages }: { pages: IPage[] }) {
+export default function PostsConteiner({
+  pages,
+  count,
+}: {
+  pages: IPage[];
+  count: number;
+}) {
   const [pagesNotFound, setPagesNotFound] = useState(true);
 
-  const lastPage = pages[pages.length - 1];
-  const otherPage = pages.slice(0, -1);
+  const lastPage = pages[0];
+  const otherPage = pages.slice(1);
 
   useEffect(() => {
     if (pages.length > 0) {
@@ -106,6 +113,7 @@ export default function PostsConteiner({ pages }: { pages: IPage[] }) {
               <PostCard key={page.url} page={page} />
             ))}
           </div>
+          {count > 6 ? <Pagination count={count} /> : <div></div>}
         </>
       ) : (
         <p className="blog__newpost_descriptions">
