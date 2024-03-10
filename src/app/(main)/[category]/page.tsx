@@ -6,8 +6,12 @@ import Sidebar from "@/components/Sidebar/Sidebar";
 
 import {
   getCategories,
+  getCategoryCountPages,
   getCategoryPages,
+  getCountCategories,
+  getCountTag,
   getTag,
+  getTagCountPages,
   getTagPages,
 } from "@/utils/mainApi";
 import { ICategories } from "@/interface/interface";
@@ -39,21 +43,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: { category: string };
+  searchParams: { page: string };
 }) {
   const categories = await getCategories();
   let category = categories.find(
     (item: ICategories) => item.url === params.category
   );
   let pages;
+  let count;
 
-  if (category === undefined) {
+  if (category === undefined && searchParams.page === undefined) {
     const tag = await getTag(params.category);
     category = tag[0];
     pages = await getTagPages(params.category);
-  } else {
+    count = await getCountTag(params.category);
+  } else if (category !== undefined && searchParams.page === undefined) {
     pages = await getCategoryPages(params.category);
+    count = await getCountCategories(params.category);
+  } else if (category === undefined && searchParams.page !== undefined) {
+    const tag = await getTag(params.category);
+    category = tag[0];
+    pages = await getTagCountPages(params.category, searchParams.page);
+    count = await getCountTag(params.category);
+  } else if (category !== undefined && searchParams.page !== undefined) {
+    pages = await getCategoryCountPages(params.category, searchParams.page);
+    count = await getCountCategories(params.category);
   }
 
   return (
@@ -61,7 +78,7 @@ export default async function Page({
       <CategoryHeader category={category} />
       <section className="category">
         <div className="category__conteiner">
-          <PostsConteiner pages={pages} />
+          <PostsConteiner pages={pages} count={count} />
           <Sidebar categories={categories} />
         </div>
       </section>

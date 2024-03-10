@@ -1,4 +1,5 @@
 import { ITags } from "@/interface/interface";
+import { stringify } from "querystring";
 
 const auth = {
   baseUrl: "http://localhost:3000",
@@ -67,6 +68,15 @@ export async function getTag(id: string) {
   return res;
 }
 
+export async function getCountTag(id: string) {
+  const res = await fetch(`${auth.baseUrl}/tags/count/${id}`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
 /* Categories */
 
 export async function getCategories() {
@@ -87,8 +97,34 @@ export async function getCategoryPages(id: string) {
   return res;
 }
 
+export async function getCategoryCountPages(id: string, params: string) {
+  const queryPar = {
+    id,
+    params,
+  };
+
+  const res = await fetch(
+    `${auth.baseUrl}/categories/pages/count/${stringify(queryPar)}`,
+    {
+      headers: auth.headers,
+      next: { revalidate: 1 },
+    }
+  ).then(checkResponse);
+
+  return res;
+}
+
 export async function getCategory(id: string) {
   const res = await fetch(`${auth.baseUrl}/categories/${id}`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
+export async function getCountCategories(id: string) {
+  const res = await fetch(`${auth.baseUrl}/categories/count/${id}`, {
     headers: auth.headers,
     next: { revalidate: 1 },
   }).then(checkResponse);
@@ -181,6 +217,23 @@ export async function getTagPages(id) {
     headers: auth.headers,
     next: { revalidate: 1 },
   }).then(checkResponse);
+
+  return res;
+}
+
+export async function getTagCountPages(id: string, params: string) {
+  const queryPar = {
+    id,
+    params,
+  };
+
+  const res = await fetch(
+    `${auth.baseUrl}/pages/tag/count/${stringify(queryPar)}`,
+    {
+      headers: auth.headers,
+      next: { revalidate: 1 },
+    }
+  ).then(checkResponse);
 
   return res;
 }
