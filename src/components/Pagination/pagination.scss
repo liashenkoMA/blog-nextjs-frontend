@@ -29,6 +29,26 @@
     @include hover {
       border: 1px solid $blue;
       box-shadow: $shadow;
+      cursor: pointer;
     }
+  }
+
+  &__image-left {
+    background-image: url(../../images/arrow-left.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+  }
+
+  &__image-right {
+    background-image: url(../../images/arrow-right.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+  }
+
+  &__link_type_active {
+    border: 1px solid $blue;
+    box-shadow: $shadow;
   }
 }
