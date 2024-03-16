@@ -12,12 +12,13 @@ const auth = {
 
 const author = {
   author: "Максим Ляшенко",
-  avatarLink: "http://localhost:3000/photos/upload/banner-2_1709892067993.jpg",
+  avatarLink:
+    "http://localhost:3000/photos/upload/belka-61-1024x768_1710594974058.jpg",
 };
 
 function checkResponse(res) {
   if (!res.ok) {
-    return Promise.reject(res);
+    return res.status;
   }
   return res.json();
 }

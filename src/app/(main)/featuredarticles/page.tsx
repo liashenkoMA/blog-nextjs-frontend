@@ -9,6 +9,7 @@ import {
   getLimitFeaturedPages,
 } from "@/utils/mainApi";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Популярные статьи на блоге",
@@ -28,6 +29,10 @@ export default async function Page({
     pages = await getLimitFeaturedPages(searchParams.page);
   } else {
     pages = await getFeaturedPages();
+  }
+
+  if (pages === undefined) {
+    notFound();
   }
 
   return (

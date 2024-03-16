@@ -10,6 +10,12 @@ import {
   getCountPages,
   getLimitPages,
 } from "@/utils/mainApi";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Статьи моего блога",
+  description: "Все статьи моего блога!",
+};
 
 export default async function Page({
   searchParams,

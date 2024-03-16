@@ -6,6 +6,21 @@ import PostHeader from "@/components/PostHeader/PostHeader";
 import Sidebar from "@/components/Sidebar/Sidebar";
 
 import { getCategories, getPage } from "@/utils/mainApi";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { category: string; post: string };
+}): Promise<Metadata> {
+  const page = await getPage(params.post);
+
+  return {
+    title: page.metaTitle,
+    description: page.metaDescription,
+  };
+}
 
 export default async function Page({
   params,
@@ -14,6 +29,10 @@ export default async function Page({
 }) {
   const categories = await getCategories();
   const page = await getPage(params.post);
+
+  if (page === 404) {
+    notFound();
+  }
 
   return (
     <>

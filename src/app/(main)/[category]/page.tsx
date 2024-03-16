@@ -15,6 +15,7 @@ import {
   getTagPages,
 } from "@/utils/mainApi";
 import { ICategories } from "@/interface/interface";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: { category: string };
@@ -33,6 +34,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     product = tag[0];
   } else {
     product = category;
+  }
+
+  if (product === undefined) {
+    notFound();
   }
 
   return {
