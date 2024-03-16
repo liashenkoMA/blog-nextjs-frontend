@@ -212,6 +212,24 @@ export async function getFeaturedPages() {
   return res;
 }
 
+export async function getLimitFeaturedPages(id) {
+  const res = await fetch(`${auth.baseUrl}/blogs/featlimit/${id}`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
+export async function getCountFeaturedPages() {
+  const res = await fetch(`${auth.baseUrl}/blogs/featcount`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
 export async function getTagPages(id) {
   const res = await fetch(`${auth.baseUrl}/pages/tag/${id}`, {
     headers: auth.headers,

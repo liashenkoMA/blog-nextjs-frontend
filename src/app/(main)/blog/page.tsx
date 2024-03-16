@@ -18,13 +18,11 @@ export default async function Page({
 }) {
   const categories = await getCategories();
   let pages;
-  let count;
+  const count = await getCountPages();
   if (searchParams.page !== undefined) {
     pages = await getLimitPages(searchParams.page);
-    count = await getCountPages();
   } else {
     pages = await getAllPages();
-    count = await getCountPages();
   }
 
   return (

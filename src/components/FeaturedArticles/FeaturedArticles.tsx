@@ -44,7 +44,7 @@ export default function FeaturedArticles({
               <FeaturedArticlesCard key={post.url} post={post} />
             ))}
         </div>
-        <Link href="/blog" className="featuredarticles__link">
+        <Link href="/featuredarticles" className="featuredarticles__link">
           Show More Posts
           <Image
             src={arrow}

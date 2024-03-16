@@ -1,0 +1,77 @@
+@import "../../app/variables.module.scss";
+@import "../../app/mixin";
+
+.featuredarticlespageheader {
+  width: 100%;
+
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background-color: $background-color-light;
+
+  @include media-1439 {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  &__conteiner {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    align-items: center;
+
+    @include media-1439 {
+      flex-direction: column;
+      max-width: 768px;
+    }
+
+    @include media-1023 {
+      max-width: 680px;
+    }
+
+    @include media-767 {
+      max-width: 290px;
+    }
+  }
+
+  &__info {
+    padding-left: 40px;
+    max-width: 980px;
+
+    display: flex;
+    flex-direction: column;
+
+    @include media-1439 {
+      padding-left: 0;
+      padding-top: 40px;
+    }
+
+    @include media-767 {
+      max-width: 290px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $white;
+  }
+
+  &__title {
+    padding-top: 20px;
+
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 40px;
+
+    @include text-gradient;
+
+    @include media-767 {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 38px;
+    }
+  }
+}
