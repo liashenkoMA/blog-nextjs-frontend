@@ -13,8 +13,8 @@
     display: flex;
     justify-content: space-between;
 
-    @include media-767 {
-      max-width: 290px;
+    @include media-1439 {
+      align-items: center;
       flex-direction: column;
     }
   }

@@ -29,4 +29,24 @@
       max-width: 290px;
     }
   }
+
+  &__content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__image {
+    @include media-1439 {
+      width: 768px;
+      height: auto;
+    }
+
+    @include media-1023 {
+      width: 680px;
+    }
+
+    @include media-767 {
+      width: 290px;
+    }
+  }
 }

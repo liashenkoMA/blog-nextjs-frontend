@@ -46,8 +46,12 @@
     flex-wrap: wrap;
     gap: 40px;
 
-    @include media-1023 {
+    @include media-1439 {
       justify-content: center;
+    }
+
+    @include media-1023 {
+      
     }
   }
 

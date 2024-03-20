@@ -44,8 +44,8 @@ export default async function Page({
               src={page.postImage}
               width={900}
               height={500}
-              alt="fsdfsdf"
-              className=""
+              alt={page.postAltImage}
+              className="post__image"
             />
             <CustomMDX source={page.text} />
           </div>

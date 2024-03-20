@@ -42,22 +42,23 @@ export default function PostsConteiner({
                   src={lastPage.postImage}
                   width={860}
                   height={500}
-                  alt="#"
-                  loading="lazy"
+                  alt={lastPage.postAltImage}
                   className="blog__newpost_images"
                 />
               </Link>
               <div className="blog__newpost_informations">
                 <div className="blog__newpost_tags">
-                  {lastPage.tags.map((tag) => (
-                    <Link
-                      key={tag.url}
-                      href={`${tag.url}`}
-                      className="blog__newpost_info blog__newpost_tag blog__newpost_link-color"
-                    >
-                      {`#${tag.name}`}
-                    </Link>
-                  ))}
+                  {lastPage.tags
+                    .filter((el, id) => id <= 1)
+                    .map((tag) => (
+                      <Link
+                        key={tag.url}
+                        href={`${tag.url}`}
+                        className="blog__newpost_info blog__newpost_tag blog__newpost_link-color"
+                      >
+                        {`#${tag.name}`}
+                      </Link>
+                    ))}
                 </div>
                 <p className="blog__newpost_info">
                   <Image

@@ -37,6 +37,11 @@
       object-fit: cover;
       border-radius: 20px;
 
+      @include media-1023 {
+        width: 680px;
+        height: auto;
+      }
+
       @include media-767 {
         width: 250px;
         height: 200px;

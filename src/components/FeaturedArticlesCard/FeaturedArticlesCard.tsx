@@ -25,12 +25,16 @@ export default function FeaturedArticlesCard({ post }: { post: IPage }) {
           />
         </Link>
         <div className="featuredarticlescard__informations">
-          <Link
-            href={`${tags.url}`}
-            className="featuredarticlescard__info link_color"
-          >
-            #{tags.name}
-          </Link>
+          {tags ? (
+            <Link
+              href={`${tags.url}`}
+              className="featuredarticlescard__info link_color"
+            >
+              #{tags.name}
+            </Link>
+          ) : (
+            <div></div>
+          )}
           <p className="featuredarticlescard__info">
             <Image
               src={time}
