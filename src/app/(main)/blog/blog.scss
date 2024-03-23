@@ -4,6 +4,7 @@
 .blog {
   padding-top: 64px;
   width: 100%;
+  min-height: calc(100vh - 807px);
 
   &__conteiner {
     max-width: 1280px;

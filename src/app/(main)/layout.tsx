@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import ButtonUp from "@/components/ButtonUp/ButtonUp";
 
 const ubuntu = Roboto({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={ubuntu.className}>
         <Header />
         {children}
+        <ButtonUp />
         <Footer />
       </body>
     </html>
