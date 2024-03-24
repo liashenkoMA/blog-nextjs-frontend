@@ -23,6 +23,39 @@ function checkResponse(res) {
   return res.json();
 }
 
+/* User */
+
+export async function postUser(
+  email: string,
+  password: string,
+  name: string,
+  avatarLink: string,
+  admin: boolean
+) {
+  const postTag = fetch(`${auth.baseUrl}/user`, {
+    method: "POST",
+    headers: auth.headers,
+    body: JSON.stringify({
+      email,
+      password,
+      name,
+      avatarLink,
+      admin,
+    }),
+  }).then(checkResponse);
+
+  return postUser;
+}
+
+export async function getUser(id) {
+  const res = await fetch(`${auth.baseUrl}/user/${id}`, {
+    headers: auth.headers,
+    next: { revalidate: 1 },
+  }).then(checkResponse);
+
+  return res;
+}
+
 /* Tags */
 
 export async function postTags(

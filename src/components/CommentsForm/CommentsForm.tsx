@@ -36,6 +36,7 @@ export default function CommentsForm({ url }) {
           <span className="commentsform__span">Введите ваше имя: </span>
           <input
             type="text"
+            placeholder="Имя"
             onChange={handleChengeName}
             className="commentsform__author"
           ></input>

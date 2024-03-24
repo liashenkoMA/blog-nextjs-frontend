@@ -220,7 +220,7 @@ export default function AdminForm() {
       nameCategory,
       descriptionCategory,
       imageUrlCategory,
-      imageAltCategory,
+      imageAltCategory
     );
   }
 

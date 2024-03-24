@@ -23,7 +23,7 @@ export interface IPage {
   categories: string;
   publickDate: string;
   author: [IAuthor];
-  tags: [ITags]
+  tags: [ITags];
   readTime: string;
 }
 
