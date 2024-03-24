@@ -204,6 +204,18 @@ export async function getCountPages() {
 
 /* Pages */
 
+export async function postComment(url, name, comment) {
+  const res = await fetch(`${auth.baseUrl}/pages/comments/${url}`, {
+    method: "PATCH",
+    headers: auth.headers,
+    body: JSON.stringify({
+      author: name,
+      textComment: comment,
+      publickDate: new Date().toISOString().slice(0, 10),
+    }),
+  });
+}
+
 export async function getFeaturedPages() {
   const res = await fetch(`${auth.baseUrl}/pages`, {
     headers: auth.headers,

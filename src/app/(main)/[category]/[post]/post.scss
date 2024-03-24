@@ -32,8 +32,22 @@
   }
 
   &__content {
-    margin-left: auto;
-    margin-right: auto;
+    margin-right: 30px;
+    margin-bottom: 30px;
+
+    @include media-1439 {
+      padding-right: 0px;
+    }
+
+    @include media-767 {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__text {
+    padding-bottom: 30px;
+    border-bottom: 1px solid $border-color;
   }
 
   &__image {

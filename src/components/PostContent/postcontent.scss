@@ -2,16 +2,6 @@
 @import "../../app/mixin";
 
 .post__content {
-  margin-right: 30px;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-
-  border-bottom: 1px solid $border-color;
-
-  @include media-1439 {
-    padding-right: 0px;
-  }
-
   &_text {
     padding: 10px 0px;
 
