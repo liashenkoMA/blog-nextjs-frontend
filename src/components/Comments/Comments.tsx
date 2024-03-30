@@ -1,3 +1,4 @@
+"use client";
 import "./comments.scss";
 
 import Comment from "../Comment/Comment";

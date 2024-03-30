@@ -47,6 +47,24 @@ export async function postUser(
   return postUser;
 }
 
+export async function onLogin(email, password) {
+  const res = await fetch(`${auth.baseUrl}/auth/signin`, {
+    method: "POST",
+    headers: auth.headers,
+    body: JSON.stringify({
+      email: `${email}`,
+      password: `${password}`,
+    }),
+  })
+    .then(checkResponse)
+    .then((user) => {
+      localStorage.setItem("jwt", user.access_token);
+      return user;
+    });
+
+  return res;
+}
+
 export async function getUser(id) {
   const res = await fetch(`${auth.baseUrl}/user/${id}`, {
     headers: auth.headers,
@@ -237,14 +255,14 @@ export async function getCountPages() {
 
 /* Pages */
 
-export async function postComment(url, name, comment) {
+export async function postComment(url, name, comment, publickDate) {
   const res = await fetch(`${auth.baseUrl}/pages/comments/${url}`, {
     method: "PATCH",
     headers: auth.headers,
     body: JSON.stringify({
       author: name,
       textComment: comment,
-      publickDate: new Date().toISOString().slice(0, 10),
+      publickDate: publickDate,
     }),
   });
 }

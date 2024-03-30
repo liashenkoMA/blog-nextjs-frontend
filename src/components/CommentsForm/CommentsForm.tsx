@@ -6,20 +6,22 @@ import { postComment } from "@/utils/mainApi";
 
 export default function CommentsForm({ url }) {
   const [name, setName] = useState("");
-  const [comment, setComment] = useState("");
+  const [text, setText] = useState("");
 
   function handleChengeName(e) {
     setName(e.target.value);
   }
 
   function handleChengeComment(e) {
-    setComment(e.target.value);
+    setText(e.target.value);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    postComment(url, name, comment);
+    const publickDate = new Date().toISOString().slice(0, 10);
+
+    postComment(url, name, text, publickDate);
   }
 
   return (

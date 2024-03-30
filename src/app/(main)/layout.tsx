@@ -4,6 +4,7 @@ import "./globals.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import ButtonUp from "@/components/ButtonUp/ButtonUp";
+import { StoreProvider } from "../StoreProvider";
 
 const ubuntu = Roboto({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
@@ -21,7 +22,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={ubuntu.className}>
         <Header />
-        {children}
+        <StoreProvider>{children}</StoreProvider>
         <ButtonUp />
         <Footer />
       </body>

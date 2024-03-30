@@ -1,0 +1,161 @@
+.login {
+  height: 100vh;
+  width: 100%;
+
+  background-color: #fafafa;
+
+  &__conteiner {
+    padding-top: 70px;
+    margin: 0px auto;
+
+    max-width: 396px;
+  }
+
+  &__title {
+    margin: 0;
+    padding-top: 38px;
+    padding-bottom: 36px;
+
+    font-size: 24px;
+    font-weight: 500;
+    line-height: normal;
+    color: #000000;
+  }
+
+  &__form {
+    position: relative;
+  }
+
+  &__form-field {
+    display: block;
+
+    position: relative;
+  }
+
+  &__form-field:nth-child(even) {
+    padding: 20px 0px;
+  }
+
+  &__form-field:nth-child(2) {
+    margin-bottom: 201px;
+  }
+
+  &__input {
+    min-width: 396px;
+    min-height: 17px;
+    padding-bottom: 10px;
+    display: block;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    color: #000000;
+
+    border: none;
+    border-bottom: 1px solid #e8e8e8;
+
+    background-color: #fafafa;
+  }
+
+  &__input::placeholder {
+    color: transparent;
+  }
+
+  &__input:focus {
+    outline: none;
+    border-bottom: 1px solid #3456f3;
+  }
+
+  &__input-placeholder {
+    padding-bottom: 5px;
+
+    font-size: 10px;
+    font-weight: 400;
+    line-height: normal;
+    color: #a0a0a0;
+  }
+
+  &__input-error {
+    max-width: 390px;
+
+    position: absolute;
+    top: 52px;
+    left: 0px;
+
+    font-size: 10px;
+    font-weight: 400;
+    line-height: normal;
+    color: #ee3465;
+  }
+
+  .input-password-error {
+    top: 55px;
+  }
+
+  &__btn {
+    min-width: 396px;
+    min-height: 45px;
+
+    background-color: #3456f3;
+
+    border: none;
+    border-radius: 3px;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    color: #ffffff;
+  }
+
+  &__btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  &__text {
+    padding-top: 16px;
+    display: block;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    color: #a0a0a0;
+    text-align: center;
+  }
+
+  &__signin-link {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    color: #3456f3;
+
+    text-decoration: none;
+  }
+
+  &__signin-link:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  &__form-error {
+    position: absolute;
+    bottom: 60px;
+    left: 0px;
+
+    color: #ff004c;
+    text-align: center;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  &__btn:disabled {
+    background-color: #f8f8f8;
+    color: #c2c2c2;
+  }
+
+  &__btn:disabled:hover {
+    opacity: 1;
+  }
+}
